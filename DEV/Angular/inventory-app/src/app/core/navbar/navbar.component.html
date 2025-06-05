@@ -1,0 +1,10 @@
+<mat-toolbar color="primary" class="full-width">
+  <span>Inventory Management</span>
+ 
+  <a mat-button routerLink="/inventory">Inventory</a>
+  <a mat-button routerLink="/about">About</a>
+  <a mat-button routerLink="/contact">Contact</a>
+
+   <span class="spacer"></span>
+  <p><mat-slide-toggle (change)="toggleDarkMode($event.checked)"></mat-slide-toggle></p>
+</mat-toolbar>
