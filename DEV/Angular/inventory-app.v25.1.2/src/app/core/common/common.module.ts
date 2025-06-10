@@ -10,8 +10,7 @@ import { HeaderControlsComponent } from './header-controls/header-controls.compo
     HeaderControlsComponent
   ],
   exports: [
-    AsideNavBarComponent,
-    HeaderControlsComponent
+
   ],
 })
 export class CommonModule { }

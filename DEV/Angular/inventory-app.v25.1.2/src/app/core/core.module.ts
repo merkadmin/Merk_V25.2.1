@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   exports: [
-    CommonModule
+    
   ],
 })
 export class CoreModule { }

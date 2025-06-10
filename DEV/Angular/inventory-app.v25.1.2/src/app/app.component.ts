@@ -8,7 +8,6 @@ import { HeaderControlsComponent } from './core/common/header-controls/header-co
   selector: 'app-root',
   imports: [
     RouterOutlet,
-    CommonModule,
     AsideNavBarComponent,
     HeaderControlsComponent
 ],
