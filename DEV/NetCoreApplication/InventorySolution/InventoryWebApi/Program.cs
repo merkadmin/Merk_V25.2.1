@@ -1,6 +1,6 @@
+using InventoryWebAPI.Controllers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
-using PatientPortalWebAPI.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 

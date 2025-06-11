@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Diagnostics;
 
-namespace PatientPortalWebAPI.Controllers
+namespace InventoryWebAPI.Controllers
 {
 	public class GlobalExceptionFilter : IExceptionFilter
 	{
