@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-import { InventoryItems_TH } from '../../../../../logic/table/inventoryItems_TH';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ITableHeader } from '../../../../../logic/table/ITable';
+import { TableHeader } from '../../../../../logic/table/TableHeader';
 
 @Component({
   selector: 'app-dynamic-data-table',
@@ -12,16 +11,6 @@ import { ITableHeader } from '../../../../../logic/table/ITable';
   styleUrl: './dynamic-data-table.component.scss'
 })
 export class DynamicDataTableComponent {
-  tableHeaders: ITableHeader[] = 
-  [
-    { name: 'id', label: 'ID', type: 'number' },
-    { name: 'name', label: '111', type: 'string' },
-    { name: 'category', label: '222', type: 'string' },
-    { name: 'quantity', label: '333', type: 'number' },
-    { name: 'unitPrice', label: '444', type: 'number' },
-    { name: 'totalValue', label: '555', type: 'number' },
-    { name: 'supplierName', label: '666', type: 'string' },
-    { name: 'lastUpdated', label: '777', type: 'date' }
-  ];
+  @Input() tableHeaders: TableHeader[] | undefined;
   tableData: any[] = [];
 }
