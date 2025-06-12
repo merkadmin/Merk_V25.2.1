@@ -12,11 +12,5 @@ namespace InventoryWebApi.Controllers
 		public InventoryItemController(IWebHostEnvironment env, InventoryDbContext context) : base(env, context)
 		{
 		}
-
-		//[HttpGet("GetItems")]
-		//public async Task<ActionResult<List<InventoryItemCu>>> GetItems()
-		//{
-		//	return await _context.InventoryItemCus.ToListAsync();
-		//}
 	}
 }
