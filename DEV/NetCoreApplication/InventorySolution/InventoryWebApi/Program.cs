@@ -1,4 +1,5 @@
 using InventoryWebAPI.Controllers;
+using InventoryWebApi.Libs.EntitiesBL.ModelEntities;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 
@@ -32,14 +33,16 @@ builder.Services
 		options.JsonSerializerOptions.PropertyNamingPolicy = null;
 	});
 
+builder.Services.AddDbContext<InventoryDbContext>();
+
 var app = builder.Build();
 
-var patientDataPath = Path.Combine(app.Environment.ContentRootPath, "PatientData");
-app.UseStaticFiles(new StaticFileOptions
-{
-	FileProvider = new PhysicalFileProvider(patientDataPath),
-	RequestPath = "/PatientData"
-});
+//var patientDataPath = Path.Combine(app.Environment.ContentRootPath, "PatientData");
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//	FileProvider = new PhysicalFileProvider(patientDataPath),
+//	RequestPath = "/PatientData"
+//});
 
 app.UseCors("AllowAll");
 app.UseHttpsRedirection();
