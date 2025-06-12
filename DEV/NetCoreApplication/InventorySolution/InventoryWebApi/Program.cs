@@ -1,7 +1,5 @@
 using InventoryWebAPI.Controllers;
 using InventoryWebApi.Libs.EntitiesBL.ModelEntities;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,7 +40,7 @@ var app = builder.Build();
 //{
 //	FileProvider = new PhysicalFileProvider(patientDataPath),
 //	RequestPath = "/PatientData"
-//});
+//});s
 
 app.UseCors("AllowAll");
 app.UseHttpsRedirection();

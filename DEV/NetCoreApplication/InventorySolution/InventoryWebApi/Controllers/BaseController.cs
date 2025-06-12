@@ -1,16 +1,27 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using InventoryWebApi.Libs.EntitiesBL.ModelEntities;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace InventoryWebAPI.Controllers
 {
 	[ApiController]
 	[Route("[controller]")]
-	public class BaseController : ControllerBase
+	public class BaseController<TEntity> : ControllerBase
+	where TEntity : class
 	{
 		protected readonly IWebHostEnvironment _env;
+		protected readonly InventoryDbContext _context;
 
-		public BaseController(IWebHostEnvironment env)
+		public BaseController(IWebHostEnvironment env, InventoryDbContext context)
 		{
 			_env = env;
+			_context = context;
+		}
+
+		[HttpGet("GetAll")]
+		public virtual async Task<ActionResult<List<TEntity>>> GetAll()
+		{
+			return await _context.Set<TEntity>().ToListAsync();
 		}
 	}
 }
