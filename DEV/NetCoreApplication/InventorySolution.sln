@@ -5,8 +5,6 @@ VisualStudioVersion = 17.14.36109.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryWebApi", "InventorySolution\InventoryWebApi\InventoryWebApi.csproj", "{3AC2135A-9281-00BF-6C9C-32641845EA11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitiesBL", "InventorySolution\EntitiesBL\EntitiesBL.csproj", "{EA707553-22C6-4FCD-9F9A-243E94EDC63B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{3AC2135A-9281-00BF-6C9C-32641845EA11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AC2135A-9281-00BF-6C9C-32641845EA11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AC2135A-9281-00BF-6C9C-32641845EA11}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EA707553-22C6-4FCD-9F9A-243E94EDC63B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EA707553-22C6-4FCD-9F9A-243E94EDC63B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EA707553-22C6-4FCD-9F9A-243E94EDC63B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EA707553-22C6-4FCD-9F9A-243E94EDC63B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
