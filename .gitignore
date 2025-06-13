@@ -428,3 +428,6 @@ DEV/NetCoreApplication/CommonBL/obj/Debug/net9.0/refint/CommonBL.dll
 DEV/NetCoreApplication/CommonBL/obj/project.assets.json
 DEV/NetCoreApplication/CommonBL/obj/project.nuget.cache
 /DEV/NetCoreApplication/InventorySolution/InventoryWebApi/bin
+/DEV/NetCoreApplication/CommonBL/bin
+/DEV/NetCoreApplication/InventorySolution/EntitiesBL/obj
+/DEV/NetCoreApplication/InventorySolution/InventoryWebApi/obj
