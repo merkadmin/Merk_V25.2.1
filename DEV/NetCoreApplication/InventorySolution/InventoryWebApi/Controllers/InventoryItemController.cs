@@ -1,4 +1,4 @@
-﻿using InventoryWebApi.Libs.EntitiesBL.ModelEntities;
+﻿using EntitiesBL.ModelEntities.GeneratedEnitities;
 using InventoryWebAPI.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace InventoryWebApi.Libs.EntitiesBL.ModelEntities;
+namespace EntitiesBL.ModelEntities.GeneratedEnitities;
 
 public partial class InventoryItemCategoryCu
 {

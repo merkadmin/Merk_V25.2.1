@@ -1,5 +1,5 @@
+using EntitiesBL.ModelEntities.GeneratedEnitities;
 using InventoryWebAPI.Controllers;
-using InventoryWebApi.Libs.EntitiesBL.ModelEntities;
 
 var builder = WebApplication.CreateBuilder(args);
 
