@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryWebApi", "Inventor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitiesBL", "InventorySolution\EntitiesBL\EntitiesBL.csproj", "{94A269EB-C411-47A4-AEDD-1C53CF1BCDCE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonBL", "CommonBL\CommonBL.csproj", "{41953D44-676F-4385-8EAD-BC1183627E95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{94A269EB-C411-47A4-AEDD-1C53CF1BCDCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94A269EB-C411-47A4-AEDD-1C53CF1BCDCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94A269EB-C411-47A4-AEDD-1C53CF1BCDCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41953D44-676F-4385-8EAD-BC1183627E95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41953D44-676F-4385-8EAD-BC1183627E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41953D44-676F-4385-8EAD-BC1183627E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41953D44-676F-4385-8EAD-BC1183627E95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
