@@ -5,7 +5,7 @@ namespace EntitiesBL.ModelEntities.GeneratedEnitities;
 
 public partial class InventoryItemCategoryCu
 {
-    public int Id { get; set; }
+    public long Id { get; set; }
 
     public string NameP { get; set; } = null!;
 
@@ -24,4 +24,6 @@ public partial class InventoryItemCategoryCu
     public DateTime? InsertedDate { get; set; }
 
     public virtual ICollection<InventoryItemCu> InventoryItemCus { get; set; } = new List<InventoryItemCu>();
+
+    public virtual ICollection<InventoryStoreCu> InventoryStoreCus { get; set; } = new List<InventoryStoreCu>();
 }

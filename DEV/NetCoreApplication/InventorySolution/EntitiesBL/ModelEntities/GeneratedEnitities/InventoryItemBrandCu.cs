@@ -5,7 +5,7 @@ namespace EntitiesBL.ModelEntities.GeneratedEnitities;
 
 public partial class InventoryItemBrandCu
 {
-    public int Id { get; set; }
+    public long Id { get; set; }
 
     public string NameP { get; set; } = null!;
 

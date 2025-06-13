@@ -5,7 +5,7 @@ namespace EntitiesBL.ModelEntities.GeneratedEnitities;
 
 public partial class InventoryItemCu
 {
-    public int Id { get; set; }
+    public long Id { get; set; }
 
     public string Code { get; set; } = null!;
 
@@ -27,9 +27,9 @@ public partial class InventoryItemCu
 
     public string? DefaultBarcode { get; set; }
 
-    public int? InventoryItemCategoryCuId { get; set; }
+    public long? InventoryItemCategoryCuId { get; set; }
 
-    public int? InventoryItemBrandCuId { get; set; }
+    public long? InventoryItemBrandCuId { get; set; }
 
     public int InventoryItemStateSellingTypePId { get; set; }
 

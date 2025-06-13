@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace EntitiesBL.ModelEntities.GeneratedEnitities;
 
@@ -18,6 +20,8 @@ public partial class InventoryDbContext : DbContext
     public virtual DbSet<InventoryItemCategoryCu> InventoryItemCategoryCus { get; set; }
 
     public virtual DbSet<InventoryItemCu> InventoryItemCus { get; set; }
+
+    public virtual DbSet<InventoryStoreCu> InventoryStoreCus { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -109,6 +113,35 @@ public partial class InventoryDbContext : DbContext
             entity.HasOne(d => d.InventoryItemCategoryCu).WithMany(p => p.InventoryItemCus)
                 .HasForeignKey(d => d.InventoryItemCategoryCuId)
                 .HasConstraintName("FK_InventoryItem_cu_InventoryItemCategory_cu");
+        });
+
+        modelBuilder.Entity<InventoryStoreCu>(entity =>
+        {
+            entity.ToTable("InventoryStore_cu");
+
+            entity.Property(e => e.Id)
+                .ValueGeneratedNever()
+                .HasColumnName("ID");
+            entity.Property(e => e.ChartOfAccountCuId).HasColumnName("ChartOfAccount_CU_ID");
+            entity.Property(e => e.DepartmentCuId).HasColumnName("Department_CU_ID");
+            entity.Property(e => e.Description).HasMaxLength(300);
+            entity.Property(e => e.FloorCuId).HasColumnName("Floor_CU_ID");
+            entity.Property(e => e.InChargeId).HasColumnName("InChargeID");
+            entity.Property(e => e.InsertedDate).HasColumnType("datetime");
+            entity.Property(e => e.InternalCode).HasMaxLength(50);
+            entity.Property(e => e.InventoryCategoryCuId).HasColumnName("InventoryCategory_CU_ID");
+            entity.Property(e => e.LocationCuId).HasColumnName("Location_CU_ID");
+            entity.Property(e => e.NameP)
+                .HasMaxLength(150)
+                .HasColumnName("Name_P");
+            entity.Property(e => e.NameS)
+                .HasMaxLength(150)
+                .HasColumnName("Name_S");
+            entity.Property(e => e.ParentInventoryStoreCuId).HasColumnName("ParentInventoryStore_CU_ID");
+
+            entity.HasOne(d => d.InventoryCategoryCu).WithMany(p => p.InventoryStoreCus)
+                .HasForeignKey(d => d.InventoryCategoryCuId)
+                .HasConstraintName("FK_InventoryStore_cu_InventoryItemCategory_cu");
         });
 
         OnModelCreatingPartial(modelBuilder);
