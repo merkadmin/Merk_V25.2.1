@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\CommonBL\CommonBL.csproj" />
     <ProjectReference Include="..\EntitiesBL\EntitiesBL.csproj" />
   </ItemGroup>
 

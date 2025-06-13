@@ -7,7 +7,7 @@ namespace InventoryWebAPI.Controllers
 	[ApiController]
 	[Route("[controller]")]
 	public class BaseController<TEntity> : ControllerBase
-	where TEntity : class
+		where TEntity : class, new()
 	{
 		protected readonly IWebHostEnvironment _env;
 		protected readonly InventoryDbContext _context;

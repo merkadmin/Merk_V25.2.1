@@ -23,4 +23,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ModelEntities\ExtendedEntities\CustomEntities\" />
+  </ItemGroup>
+
 </Project>

@@ -1,3 +1,7 @@
+DEV/NetCoreApplication/.vs
+DEV/NetCoreApplication/CommonBL/obj
+DEV/NetCoreApplication/InventorySolution/.vs
+DEV/NetCoreApplication/InventorySolution/EntitiesBL/bin
 DEV/NetCoreApplication/.vs/InventorySolution/config/applicationhost.config
 DEV/NetCoreApplication/.vs/InventorySolution/copilot-chat/d3e5603a/sessions/8becd777-548f-47be-ad79-949ff21046ff
 DEV/NetCoreApplication/.vs/InventorySolution/CopilotIndices/17.14.670.39694/CodeChunks.db
@@ -423,3 +427,4 @@ DEV/NetCoreApplication/CommonBL/obj/Debug/net9.0/ref/CommonBL.dll
 DEV/NetCoreApplication/CommonBL/obj/Debug/net9.0/refint/CommonBL.dll
 DEV/NetCoreApplication/CommonBL/obj/project.assets.json
 DEV/NetCoreApplication/CommonBL/obj/project.nuget.cache
+/DEV/NetCoreApplication/InventorySolution/InventoryWebApi/bin
