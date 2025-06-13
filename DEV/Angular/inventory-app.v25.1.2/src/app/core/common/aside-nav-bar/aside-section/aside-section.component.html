@@ -6,9 +6,9 @@
 
 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
     <span class="menu-link">
-        <span class="menu-icon">
-            <i class="bi bi-archive fs-3"></i>
-        </span>
+        <a class="menu-icon">
+            <i [ngClass]="AsideSectionItem?.headerTitleIcon"></i>
+        </a>
         <span class="menu-title">{{ AsideSectionItem?.itemSectionTitle }}</span>
         <span class="menu-arrow"></span>
     </span>
@@ -18,7 +18,7 @@
                 <span class="menu-bullet">
                     <span [ngClass]="item.nameIcon"></span>
                 </span>
-                <span class="menu-title">{{ item.name }}</span>
+                <a class="menu-title" [routerLink]="item.link">{{ item.name }}</a>
             </span>
         </div>
     </div>

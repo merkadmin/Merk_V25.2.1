@@ -1,11 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AsideSectionCollection } from './AsideSectionCollection';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-aside-section',
   imports: 
   [
-    CommonModule 
+    CommonModule,
+    RouterModule
   ],
   templateUrl: './aside-section.component.html',
   styleUrl: './aside-section.component.scss',
