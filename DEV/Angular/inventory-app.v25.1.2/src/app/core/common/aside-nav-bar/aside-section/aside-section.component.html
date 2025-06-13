@@ -1,0 +1,25 @@
+<div class="menu-item">
+    <div class="menu-content pt-8 pb-2">
+        <span class="menu-section text-muted text-uppercase fs-8 ls-1">{{ AsideSectionItem?.headerTitle }}</span>
+    </div>
+</div>
+
+<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+    <span class="menu-link">
+        <span class="menu-icon">
+            <i class="bi bi-archive fs-3"></i>
+        </span>
+        <span class="menu-title">{{ AsideSectionItem?.itemSectionTitle }}</span>
+        <span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion menu-active-bg">
+        <div data-kt-menu-trigger="click" class="menu-item menu-accordion" *ngFor="let item of AsideSectionItem?.itemsInside; let i = index">
+            <span class="menu-link">
+                <span class="menu-bullet">
+                    <span [ngClass]="item.nameIcon"></span>
+                </span>
+                <span class="menu-title">{{ item.name }}</span>
+            </span>
+        </div>
+    </div>
+</div>
