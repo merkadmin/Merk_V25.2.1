@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AsideSectionComponent } from './aside-section/aside-section.component';
-import { AsideSectionItem } from './aside-section/AsideSectionItem';
+import { AsideSectionCollection } from './aside-section/AsideSectionCollection';
 
 @Component({
   selector: 'app-aside-nav-bar',
@@ -9,13 +9,13 @@ import { AsideSectionItem } from './aside-section/AsideSectionItem';
   styleUrl: './aside-nav-bar.component.scss',
 })
 export class AsideNavBarComponent implements OnInit {
-  Settings_AsideSectionItem: AsideSectionItem = new AsideSectionItem(
+  Settings_AsideSectionItem: AsideSectionCollection = new AsideSectionCollection(
     'Settings',
     'Inventory',
     [
-      { name: 'Stores', nameIcon: 'bullet bullet-dot', order: 1 },
-      { name: 'Categories', nameIcon: 'bullet bullet-dot', order: 2 },
-      { name: 'Items', nameIcon: 'bullet bullet-dot', order: 3 },
+      { name: 'Stores', nameIcon: 'bullet bullet-dot', order: 1, link: '/settings/stores' },
+      { name: 'Categories', nameIcon: 'bullet bullet-dot', order: 2, link: '/settings/categories' },
+      { name: 'Items', nameIcon: 'bullet bullet-dot', order: 3, link: '/settings/items' },
     ]
   );
 

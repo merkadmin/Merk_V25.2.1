@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AsideSectionItem } from './AsideSectionItem';
+import { AsideSectionCollection } from './AsideSectionCollection';
 @Component({
   selector: 'app-aside-section',
   imports: 
@@ -11,5 +11,5 @@ import { AsideSectionItem } from './AsideSectionItem';
   styleUrl: './aside-section.component.scss',
 })
 export class AsideSectionComponent {
-  @Input() AsideSectionItem: AsideSectionItem | undefined;
+  @Input() AsideSectionItem: AsideSectionCollection | undefined;
 }
