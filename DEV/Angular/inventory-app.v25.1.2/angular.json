@@ -38,7 +38,9 @@
               "src/assets/plugins/global/plugins.bundle.css",
               "src/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css"
             ],
-            "scripts": []
+            "scripts": [
+              
+            ]
           },
           "configurations": {
             "production": {

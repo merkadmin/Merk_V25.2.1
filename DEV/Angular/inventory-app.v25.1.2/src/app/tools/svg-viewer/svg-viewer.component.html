@@ -1,0 +1,15 @@
+<div class="svg-search-bar" style="margin-bottom: 16px;">
+  <input
+    type="text"
+    [(ngModel)]="searchText"
+    placeholder="Search SVG icons..."
+    class="form-control"
+    style="max-width: 300px;"
+  />
+</div>
+<div class="icon-gallery">
+  <div *ngFor="let file of filteredSvgFiles" class="icon-item">
+    <img [src]="getIconPath(file)" [alt]="file" width="48" height="48" />
+    <div class="icon-label">{{ file }}</div>
+  </div>
+</div>
