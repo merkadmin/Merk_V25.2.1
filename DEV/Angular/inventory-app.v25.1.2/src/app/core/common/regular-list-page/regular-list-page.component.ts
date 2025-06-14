@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewChecked, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActionButtonComponent } from '../controls/actions/action-button/action-button.component';
 import { DynamicDataTableComponent } from '../controls/tables/dynamic-data-table/dynamic-data-table.component';
 import { SearchInputComponent } from '../controls/inputs/search-input/search-input.component';
 import { TableHeader } from '../../../logic/table/TableHeader';
 import { CommonModule } from '@angular/common';
+declare const KTMenu: any;
 
 @Component({
   selector: 'app-regular-list-page',
@@ -16,7 +17,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './regular-list-page.component.html',
   styleUrl: './regular-list-page.component.scss',
 })
-export class RegularListPageComponent {
+export class RegularListPageComponent implements OnInit, OnChanges, AfterViewChecked {
   @Input() tableHeaders: TableHeader[] | undefined;
   @Input() tableData: any[] | undefined;
   @Input() showTableRowActions: boolean | undefined;
@@ -27,9 +28,35 @@ export class RegularListPageComponent {
   @Input() showExportButton: boolean | undefined;
   @Input() showAddButton: boolean | undefined;
 
-  showActionMenu: boolean = false;
+  @Input() showActionMenu: boolean = false;
+
+  ngOnInit(): void {
+    
+  }
+
+  ngAfterViewChecked(): void {
+    if (this.showActionMenu && typeof KTMenu !== 'undefined') {
+      KTMenu.createInstances();
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+  
+  }
 
   onSelectionChanged(anySelected: boolean) {
     this.showActionMenu = anySelected;
+    if (this.showActionMenu) {
+      setTimeout(() => {
+        if (typeof KTMenu !== 'undefined') {
+          KTMenu.createInstances();
+        }
+      });
+   }
+  }
+
+  onRefreshData(){
+    // Logic to refresh data can be implemented here
+    console.log('Data refreshed!');
   }
 }

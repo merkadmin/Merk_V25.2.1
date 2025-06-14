@@ -13,6 +13,9 @@ function walk(dir) {
     } else if (file.endsWith('.svg')) {
       // Store relative path from 'duotune'
       svgFiles.push(path.relative(baseDir, fullPath).replace(/\\/g, '/'));
+    } else if (file.endsWith('.png')) {
+      // Store relative path from 'duotune'
+      svgFiles.push(path.relative(baseDir, fullPath).replace(/\\/g, '/'));
     }
   });
 }

@@ -9,5 +9,5 @@ import { Component, Input } from '@angular/core';
 export class ActionButtonComponent {
   @Input() class: string = 'btn btn-primary';
   @Input() icon: string = 'fa fa-plus';
-  @Input() text: string = '---';
+  @Input() text: string = '';
 }
