@@ -1,21 +1,20 @@
 import { Component, Input } from '@angular/core';
-import { ActionButtonComponent } from "../controls/actions/action-button/action-button.component";
-import { DynamicDataTableComponent } from "../controls/tables/dynamic-data-table/dynamic-data-table.component";
-import { SearchInputComponent } from "../controls/inputs/search-input/search-input.component";
+import { ActionButtonComponent } from '../controls/actions/action-button/action-button.component';
+import { DynamicDataTableComponent } from '../controls/tables/dynamic-data-table/dynamic-data-table.component';
+import { SearchInputComponent } from '../controls/inputs/search-input/search-input.component';
 import { TableHeader } from '../../../logic/table/TableHeader';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-regular-list-page',
-  imports: 
-  [
+  imports: [
     CommonModule,
-    ActionButtonComponent, 
-    DynamicDataTableComponent, 
-    SearchInputComponent
+    ActionButtonComponent,
+    DynamicDataTableComponent,
+    SearchInputComponent,
   ],
   templateUrl: './regular-list-page.component.html',
-  styleUrl: './regular-list-page.component.scss'
+  styleUrl: './regular-list-page.component.scss',
 })
 export class RegularListPageComponent {
   @Input() tableHeaders: TableHeader[] | undefined;
@@ -27,4 +26,10 @@ export class RegularListPageComponent {
   @Input() showFilterButton: boolean | undefined;
   @Input() showExportButton: boolean | undefined;
   @Input() showAddButton: boolean | undefined;
+
+  showActionMenu: boolean = false;
+
+  onSelectionChanged(anySelected: boolean) {
+    this.showActionMenu = anySelected;
+  }
 }

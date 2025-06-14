@@ -120,6 +120,37 @@
                 <app-action-button *ngIf="showAddButton" [text]="'Add ' + (EntityName ?? '')">
                     <i class="bi bi-plus-lg"></i>
                 </app-action-button>
+
+                <div class="ms-3" *ngIf="showActionMenu">
+                    <a class="btn btn-light-warning btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                        <img src="assets/media/icons/duotune/general/threedots.svg" alt="View Icon" width="18"
+                            height="18" class="me-2" />
+                    </a>
+                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
+                        data-kt-menu="true">
+                        <div class="menu-item px-3">
+                            <a class="menu-link px-3">
+                                <img src="assets/media/icons/duotune/abstract/abs015.svg" alt="View Icon" width="18"
+                                    height="18" class="me-2" />
+                                View
+                            </a>
+                        </div>
+                        <div class="menu-item px-3">
+                            <a class="menu-link px-3">
+                                <img src="assets/media/icons/duotune/general/edit01.svg" alt="View Icon" width="18"
+                                    height="18" class="me-2" />
+                                Edit
+                            </a>
+                        </div>
+                        <div class="menu-item px-3">
+                            <a class="menu-link px-3" data-kt-customer-table-filter="delete_row">
+                                <img src="assets/media/icons/duotune/general/delete01.svg" alt="View Icon" width="18"
+                                    height="18" class="me-2" />
+                                Delete
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="d-flex justify-content-end align-items-center d-none" data-kt-customer-table-toolbar="selected">
@@ -136,7 +167,11 @@
 
     </div>
 
-    <app-dynamic-data-table *ngIf="tableData" [tableHeaders]="tableHeaders || []" [tableData]="tableData || []"
-        [showTableRowActions]="showTableRowActions">
+    <app-dynamic-data-table 
+        *ngIf="tableData" 
+        [tableHeaders]="tableHeaders || []" 
+        [tableData]="tableData || []"
+        [showTableRowActions]="showTableRowActions" 
+        (selectionChanged)="onSelectionChanged($event)">
     </app-dynamic-data-table>
 </div>
