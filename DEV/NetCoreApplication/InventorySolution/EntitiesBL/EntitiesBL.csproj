@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ModelEntities\ExtendedEntities\CustomEntities\" />
+    <Folder Include="ModelEntities\GeneratedEnitities\" />
   </ItemGroup>
 
 </Project>

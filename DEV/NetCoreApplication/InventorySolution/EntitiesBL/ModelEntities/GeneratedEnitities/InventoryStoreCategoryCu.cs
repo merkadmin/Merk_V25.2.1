@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace EntitiesBL.ModelEntities.GeneratedEnitities;
 
-public partial class InventoryItemCategoryCu
+public partial class InventoryStoreCategoryCu
 {
     public long Id { get; set; }
 
-    public long InventoryItemCuId { get; set; }
+    public long InventoryStoreCuId { get; set; }
 
     public long InventoryCategoryCuId { get; set; }
 
@@ -19,5 +19,5 @@ public partial class InventoryItemCategoryCu
 
     public virtual InventoryCategoryCu InventoryCategoryCu { get; set; } = null!;
 
-    public virtual InventoryItemCu InventoryItemCu { get; set; } = null!;
+    public virtual InventoryStoreCu InventoryStoreCu { get; set; } = null!;
 }

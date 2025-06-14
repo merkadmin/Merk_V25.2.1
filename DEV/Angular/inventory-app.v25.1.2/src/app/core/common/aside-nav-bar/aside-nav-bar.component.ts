@@ -15,8 +15,8 @@ export class AsideNavBarComponent implements OnInit {
     'Inventory',
     '',
     [
-      { name: 'Stores', nameIcon: 'bullet bullet-dot', order: 1, link: 'settings/stores' },
-      { name: 'Categories', nameIcon: 'bullet bullet-dot', order: 2, link: 'settings/categories' },
+      { name: 'Stores', nameIcon: 'bullet bullet-dot', order: 2, link: 'settings/stores' },
+      { name: 'Categories', nameIcon: 'bullet bullet-dot', order: 1, link: 'settings/categories' },
       { name: 'Items', nameIcon: 'bullet bullet-dot', order: 3, link: 'settings/items' },
     ]
   );

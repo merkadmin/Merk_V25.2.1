@@ -16,7 +16,7 @@ namespace EntitiesBL.ModelEntities.CommonBL
 
 		public DateTime InsertedDate { get; set; }
 
-		public DB_CommonTransactionType DBCommonTransactionType { get; set; }
+		//public virtual DB_CommonTransactionType DBCommonTransactionType { get; set; }
 
 		#endregion
 
@@ -30,7 +30,7 @@ namespace EntitiesBL.ModelEntities.CommonBL
 
 		public virtual bool LoadFromDB { get; }
 
-		public virtual DBCommonEntitiesType TableType { get; private set; }
+		//public virtual DBCommonEntitiesType TableType { get; private set; }
 
 		public static InventoryDbContext _context;
 
@@ -115,19 +115,19 @@ namespace EntitiesBL.ModelEntities.CommonBL
 			where TEntity : DBCommon, IDBCommon, new()
 		{
 			int count = 0;
-			using (UnitOfWork unitOfWork = new UnitOfWork(DBCommon.DBContext_External))
-			{
-				if (entity.DBCommonTransactionType == DB_CommonTransactionType.SaveNew)
-				{
-					unitOfWork.GetList<TEntity>().AddEntity(entity);
-					count = unitOfWork.SaveChanges();
-				}
-				else
-				{
-					unitOfWork.UpdateChanges(entity);
-					count = 1;
-				}
-			}
+			//using (UnitOfWork unitOfWork = new UnitOfWork(DBCommon.DBContext_External))
+			//{
+			//	if (entity.DBCommonTransactionType == DB_CommonTransactionType.SaveNew)
+			//	{
+			//		unitOfWork.GetList<TEntity>().AddEntity(entity);
+			//		count = unitOfWork.SaveChanges();
+			//	}
+			//	else
+			//	{
+			//		unitOfWork.UpdateChanges(entity);
+			//		count = 1;
+			//	}
+			//}
 
 			return count > 0;
 		}

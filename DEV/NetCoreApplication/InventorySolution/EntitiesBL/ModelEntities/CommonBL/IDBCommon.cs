@@ -6,6 +6,6 @@
 		bool IsOnDuty { get; set; }
 		long InsertedBy { get; set; }
 		DateTime InsertedDate { get; set; }
-		DB_CommonTransactionType DBCommonTransactionType { get; set; }
+		//DB_CommonTransactionType DBCommonTransactionType { get; set; }
 	}
 }

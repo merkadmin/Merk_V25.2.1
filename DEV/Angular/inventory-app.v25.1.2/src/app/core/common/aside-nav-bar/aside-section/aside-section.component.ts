@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AsideSectionCollection } from './AsideSectionCollection';
 import { RouterModule } from '@angular/router';
@@ -12,6 +12,10 @@ import { RouterModule } from '@angular/router';
   templateUrl: './aside-section.component.html',
   styleUrl: './aside-section.component.scss',
 })
-export class AsideSectionComponent {
+export class AsideSectionComponent implements AfterViewInit {
   @Input() AsideSectionItem: AsideSectionCollection | undefined;
+
+  ngAfterViewInit(): void {
+    console.log('AsideSectionItem:', this.AsideSectionItem);
+  }
 }

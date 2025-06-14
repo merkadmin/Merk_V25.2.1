@@ -27,8 +27,6 @@ public partial class InventoryItemCu
 
     public string? DefaultBarcode { get; set; }
 
-    public long? InventoryItemCategoryCuId { get; set; }
-
     public long? InventoryItemBrandCuId { get; set; }
 
     public int InventoryItemStateSellingTypePId { get; set; }
@@ -91,5 +89,5 @@ public partial class InventoryItemCu
 
     public virtual InventoryItemBrandCu? InventoryItemBrandCu { get; set; }
 
-    public virtual InventoryItemCategoryCu? InventoryItemCategoryCu { get; set; }
+    public virtual ICollection<InventoryItemCategoryCu> InventoryItemCategoryCus { get; set; } = new List<InventoryItemCategoryCu>();
 }

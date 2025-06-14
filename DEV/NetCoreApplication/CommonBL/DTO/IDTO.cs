@@ -9,6 +9,5 @@ namespace CommonBL.DTO
 		long UserID { get; set; }
 		long RowCount { get; set; }
 		DateTime InsertedDate { get; set; }
-		DB_CommonTransactionType DB_CommonTransactionType { get; set; }
 	}
 }

@@ -1,3 +1,5 @@
-export class Controller {
-    
+export enum Controller {
+    InventoryItem = 'InventoryItem',
+    InventoryStore = 'InventoryStore',
+    InventoryCategory = 'InventoryCategory',
 }

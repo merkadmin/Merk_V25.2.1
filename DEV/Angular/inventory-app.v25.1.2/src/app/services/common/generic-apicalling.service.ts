@@ -8,13 +8,13 @@ import { API } from './API';
   providedIn: 'root'
 })
 export class GenericAPICallingService {
-
-  private patientPortalBaseURL: string = 'https://localhost:7090/';
+  private baseURL: string = 'https://localhost:7272/';
 
   constructor(private http: HttpClient) { }
 
    get<T>(controller: Controller, api: API, params?: { [key: string]: any }): Observable<T> {
-    let url = this.patientPortalBaseURL + controller + '/' + api;
+    console.log('GenericAPICallingService.get called with:', controller, api, params);
+    let url = this.baseURL + controller + '/' + api;
     if (params) {
       const query = new URLSearchParams(params).toString();
       url += `?${query}`;

@@ -1,3 +1,3 @@
-export class API {
-    
+export enum API {
+    GetAll = 'GetAll',
 }

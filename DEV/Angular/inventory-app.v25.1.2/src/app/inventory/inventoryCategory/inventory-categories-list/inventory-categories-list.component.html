@@ -1,1 +1,9 @@
-<p>inventory-categories-list works!</p>
+<app-regular-list-page 
+    [tableHeaders] = 'tableHeaders' 
+    [showSearchInput]="true" 
+    EntityName="Category" 
+    [showFilterButton]="true" 
+    [showExportButton]="true" 
+    [showAddButton]="true"
+    [tableData]="Items">
+</app-regular-list-page>

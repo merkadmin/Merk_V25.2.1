@@ -15,11 +15,15 @@ public partial class InventoryDbContext : DbContext
     {
     }
 
+    public virtual DbSet<InventoryCategoryCu> InventoryCategoryCus { get; set; }
+
     public virtual DbSet<InventoryItemBrandCu> InventoryItemBrandCus { get; set; }
 
     public virtual DbSet<InventoryItemCategoryCu> InventoryItemCategoryCus { get; set; }
 
     public virtual DbSet<InventoryItemCu> InventoryItemCus { get; set; }
+
+    public virtual DbSet<InventoryStoreCategoryCu> InventoryStoreCategoryCus { get; set; }
 
     public virtual DbSet<InventoryStoreCu> InventoryStoreCus { get; set; }
 
@@ -29,13 +33,30 @@ public partial class InventoryDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<InventoryCategoryCu>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK_InventoryItemCategory_cu");
+
+            entity.ToTable("InventoryCategory_cu");
+
+            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.ChartOfAccountCuId).HasColumnName("ChartOfAccount_CU_ID");
+            entity.Property(e => e.Description).HasMaxLength(200);
+            entity.Property(e => e.InsertedDate).HasColumnType("datetime");
+            entity.Property(e => e.InternalCode).HasMaxLength(50);
+            entity.Property(e => e.NameP)
+                .HasMaxLength(150)
+                .HasColumnName("Name_P");
+            entity.Property(e => e.NameS)
+                .HasMaxLength(150)
+                .HasColumnName("Name_S");
+        });
+
         modelBuilder.Entity<InventoryItemBrandCu>(entity =>
         {
             entity.ToTable("InventoryItemBrand_cu");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("ID");
+            entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.ChartOfAccountCuId).HasColumnName("ChartOfAccount_CU_ID");
             entity.Property(e => e.Description).HasMaxLength(200);
             entity.Property(e => e.InsertedDate).HasColumnType("datetime");
@@ -50,30 +71,29 @@ public partial class InventoryDbContext : DbContext
 
         modelBuilder.Entity<InventoryItemCategoryCu>(entity =>
         {
-            entity.ToTable("InventoryItemCategory_cu");
+            entity.ToTable("InventoryItem_Category_cu");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("ID");
-            entity.Property(e => e.ChartOfAccountCuId).HasColumnName("ChartOfAccount_CU_ID");
-            entity.Property(e => e.Description).HasMaxLength(200);
+            entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.InsertedDate).HasColumnType("datetime");
-            entity.Property(e => e.InternalCode).HasMaxLength(50);
-            entity.Property(e => e.NameP)
-                .HasMaxLength(150)
-                .HasColumnName("Name_P");
-            entity.Property(e => e.NameS)
-                .HasMaxLength(150)
-                .HasColumnName("Name_S");
+            entity.Property(e => e.InventoryCategoryCuId).HasColumnName("InventoryCategory_CU_ID");
+            entity.Property(e => e.InventoryItemCuId).HasColumnName("InventoryItem_CU_ID");
+
+            entity.HasOne(d => d.InventoryCategoryCu).WithMany(p => p.InventoryItemCategoryCus)
+                .HasForeignKey(d => d.InventoryCategoryCuId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_InventoryItem_Category_cu_InventoryCategory_cu");
+
+            entity.HasOne(d => d.InventoryItemCu).WithMany(p => p.InventoryItemCategoryCus)
+                .HasForeignKey(d => d.InventoryItemCuId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_InventoryItem_Category_cu_InventoryItem_cu");
         });
 
         modelBuilder.Entity<InventoryItemCu>(entity =>
         {
             entity.ToTable("InventoryItem_cu");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("ID");
+            entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.AbbreviationName).HasMaxLength(10);
             entity.Property(e => e.AreaUnitMeasurePId).HasColumnName("AreaUnitMeasure_P_ID");
             entity.Property(e => e.Code).HasMaxLength(200);
@@ -84,7 +104,6 @@ public partial class InventoryDbContext : DbContext
             entity.Property(e => e.InsertedDate).HasColumnType("datetime");
             entity.Property(e => e.InternalCode).HasMaxLength(150);
             entity.Property(e => e.InventoryItemBrandCuId).HasColumnName("InventoryItemBrand_CU_ID");
-            entity.Property(e => e.InventoryItemCategoryCuId).HasColumnName("InventoryItemCategory_CU_ID");
             entity.Property(e => e.InventoryItemInvoicingStrategyPId).HasColumnName("InventoryItemInvoicingStrategy_P_ID");
             entity.Property(e => e.InventoryItemStatePurchasingTypePId).HasColumnName("InventoryItemStatePurchasingType_P_ID");
             entity.Property(e => e.InventoryItemStateSellingTypePId).HasColumnName("InventoryItemStateSellingType_P_ID");
@@ -109,19 +128,33 @@ public partial class InventoryDbContext : DbContext
             entity.HasOne(d => d.InventoryItemBrandCu).WithMany(p => p.InventoryItemCus)
                 .HasForeignKey(d => d.InventoryItemBrandCuId)
                 .HasConstraintName("FK_InventoryItem_cu_InventoryItemBrand_cu");
+        });
 
-            entity.HasOne(d => d.InventoryItemCategoryCu).WithMany(p => p.InventoryItemCus)
-                .HasForeignKey(d => d.InventoryItemCategoryCuId)
-                .HasConstraintName("FK_InventoryItem_cu_InventoryItemCategory_cu");
+        modelBuilder.Entity<InventoryStoreCategoryCu>(entity =>
+        {
+            entity.ToTable("InventoryStore_Category_cu");
+
+            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.InsertedDate).HasColumnType("datetime");
+            entity.Property(e => e.InventoryCategoryCuId).HasColumnName("InventoryCategory_CU_ID");
+            entity.Property(e => e.InventoryStoreCuId).HasColumnName("InventoryStore_CU_ID");
+
+            entity.HasOne(d => d.InventoryCategoryCu).WithMany(p => p.InventoryStoreCategoryCus)
+                .HasForeignKey(d => d.InventoryCategoryCuId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_InventoryStore_Category_cu_InventoryCategory_cu");
+
+            entity.HasOne(d => d.InventoryStoreCu).WithMany(p => p.InventoryStoreCategoryCus)
+                .HasForeignKey(d => d.InventoryStoreCuId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_InventoryStore_Category_cu_InventoryStore_cu");
         });
 
         modelBuilder.Entity<InventoryStoreCu>(entity =>
         {
             entity.ToTable("InventoryStore_cu");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("ID");
+            entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.ChartOfAccountCuId).HasColumnName("ChartOfAccount_CU_ID");
             entity.Property(e => e.DepartmentCuId).HasColumnName("Department_CU_ID");
             entity.Property(e => e.Description).HasMaxLength(300);
@@ -138,10 +171,6 @@ public partial class InventoryDbContext : DbContext
                 .HasMaxLength(150)
                 .HasColumnName("Name_S");
             entity.Property(e => e.ParentInventoryStoreCuId).HasColumnName("ParentInventoryStore_CU_ID");
-
-            entity.HasOne(d => d.InventoryCategoryCu).WithMany(p => p.InventoryStoreCus)
-                .HasForeignKey(d => d.InventoryCategoryCuId)
-                .HasConstraintName("FK_InventoryStore_cu_InventoryItemCategory_cu");
         });
 
         OnModelCreatingPartial(modelBuilder);

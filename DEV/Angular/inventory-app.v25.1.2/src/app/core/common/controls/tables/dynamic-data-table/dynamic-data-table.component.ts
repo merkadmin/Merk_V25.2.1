@@ -12,5 +12,5 @@ import { TableHeader } from '../../../../../logic/table/TableHeader';
 })
 export class DynamicDataTableComponent {
   @Input() tableHeaders: TableHeader[] | undefined;
-  tableData: any[] = [];
+  @Input() tableData: any[] = [];
 }
