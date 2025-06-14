@@ -56,7 +56,6 @@ export class RegularListPageComponent implements OnInit, OnChanges, AfterViewChe
   }
 
   onRefreshData(){
-    // Logic to refresh data can be implemented here
     console.log('Data refreshed!');
   }
 }
