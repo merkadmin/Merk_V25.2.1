@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewChecked, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ActionButtonComponent } from '../controls/actions/action-button/action-button.component';
 import { DynamicDataTableComponent } from '../controls/tables/dynamic-data-table/dynamic-data-table.component';
 import { SearchInputComponent } from '../controls/inputs/search-input/search-input.component';
@@ -29,6 +29,8 @@ export class RegularListPageComponent implements OnInit, OnChanges, AfterViewChe
   @Input() showAddButton: boolean | undefined;
 
   @Input() showActionMenu: boolean = false;
+
+  @Output() refresData = new EventEmitter<void>();
 
   ngOnInit(): void {
     

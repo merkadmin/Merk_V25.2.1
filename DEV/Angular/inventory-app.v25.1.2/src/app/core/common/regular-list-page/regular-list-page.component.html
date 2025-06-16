@@ -8,7 +8,7 @@
         <div class="card-toolbar">
 
             <app-action-button [class]="'btn btn-white me-3 p-0'" (click)="onRefreshData()">
-                <img src="assets/media/icons/duotune/general/refresh02.png" alt="View Icon" width="40" height="40" />
+                <img src="assets/media/icons/duotune/general/196.svg" alt="View Icon" width="46" height="46" />
             </app-action-button>
             
             <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
@@ -26,22 +26,13 @@
                 </button>
                 <div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true"
                     id="kt-toolbar-filter">
-                    <!--begin::Header-->
                     <div class="px-7 py-5">
                         <div class="fs-4 text-dark fw-bolder">Filter Options</div>
                     </div>
-                    <!--end::Header-->
-                    <!--begin::Separator-->
                     <div class="separator border-gray-200"></div>
-                    <!--end::Separator-->
-                    <!--begin::Content-->
                     <div class="px-7 py-5">
-                        <!--begin::Input group-->
                         <div class="mb-10">
-                            <!--begin::Label-->
                             <label class="form-label fs-5 fw-bold mb-3">Month:</label>
-                            <!--end::Label-->
-                            <!--begin::Input-->
                             <select class="form-select form-select-solid fw-bolder" data-kt-select2="true"
                                 data-placeholder="Select option" data-allow-clear="true"
                                 data-kt-customer-table-filter="month" data-dropdown-parent="#kt-toolbar-filter">
@@ -52,58 +43,39 @@
                                 <option value="nov">November</option>
                                 <option value="dec">December</option>
                             </select>
-                            <!--end::Input-->
                         </div>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
                         <div class="mb-10">
-                            <!--begin::Label-->
                             <label class="form-label fs-5 fw-bold mb-3">Payment Type:</label>
-                            <!--end::Label-->
-                            <!--begin::Options-->
                             <div class="d-flex flex-column flex-wrap fw-bold"
                                 data-kt-customer-table-filter="payment_type">
-                                <!--begin::Option-->
                                 <label class="form-check form-check-sm form-check-custom form-check-solid mb-3 me-5">
                                     <input class="form-check-input" type="radio" name="payment_type" value="all"
                                         checked="checked" />
                                     <span class="form-check-label text-gray-600">All</span>
                                 </label>
-                                <!--end::Option-->
-                                <!--begin::Option-->
                                 <label class="form-check form-check-sm form-check-custom form-check-solid mb-3 me-5">
                                     <input class="form-check-input" type="radio" name="payment_type" value="visa" />
                                     <span class="form-check-label text-gray-600">Visa</span>
                                 </label>
-                                <!--end::Option-->
-                                <!--begin::Option-->
                                 <label class="form-check form-check-sm form-check-custom form-check-solid mb-3">
                                     <input class="form-check-input" type="radio" name="payment_type"
                                         value="mastercard" />
                                     <span class="form-check-label text-gray-600">Mastercard</span>
                                 </label>
-                                <!--end::Option-->
-                                <!--begin::Option-->
                                 <label class="form-check form-check-sm form-check-custom form-check-solid">
                                     <input class="form-check-input" type="radio" name="payment_type"
                                         value="american_express" />
                                     <span class="form-check-label text-gray-600">American Express</span>
                                 </label>
-                                <!--end::Option-->
                             </div>
-                            <!--end::Options-->
                         </div>
-                        <!--end::Input group-->
-                        <!--begin::Actions-->
                         <div class="d-flex justify-content-end">
                             <button type="reset" class="btn btn-light btn-active-light-primary me-2"
                                 data-kt-menu-dismiss="true" data-kt-customer-table-filter="reset">Reset</button>
                             <button type="submit" class="btn btn-primary" data-kt-menu-dismiss="true"
                                 data-kt-customer-table-filter="filter">Apply</button>
                         </div>
-                        <!--end::Actions-->
                     </div>
-                    <!--end::Content-->
                 </div>
 
                 <app-action-button *ngIf="showExportButton" [text]="'Export'" [class]="'btn btn-light-primary me-3'">
@@ -127,12 +99,18 @@
                 </app-action-button>
 
                 <div class="ms-3" *ngIf="showActionMenu">
-                    <a class="btn btn-light-warning btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                        <img src="assets/media/icons/duotune/general/threedots.svg" alt="View Icon" width="18"
-                            height="18" class="me-2" />
+                    <a class="btn btn-white me-3 p-0" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                        <img src="assets/media/icons/duotune/general/203.svg" alt="View Icon" width="46" height="46" />
                     </a>
                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
                         data-kt-menu="true">
+                        <div class="menu-item px-3">
+                            <a class="menu-link px-3" data-kt-customer-table-filter="delete_row">
+                                <img src="assets/media/icons/duotune/general/196.svg" alt="View Icon" width="18"
+                                    height="18" class="me-2" />
+                                Refresh
+                            </a>
+                        </div>
                         <div class="menu-item px-3">
                             <a class="menu-link px-3" data-kt-customer-table-filter="delete_row">
                                 <img src="assets/media/icons/duotune/general/delete01.svg" alt="View Icon" width="18"

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { GenericAPICallingService } from '../../../services/common/generic-apicalling.service';
 import { ActivatedRoute } from '@angular/router';
 import { InventoryCategoryModel } from '../../../logic/models/InventoryCategoryModel';
@@ -7,6 +7,7 @@ import { API } from '../../../services/common/API';
 import { RegularListPageComponent } from "../../../core/common/regular-list-page/regular-list-page.component";
 import { InventoryCategories_TH } from '../../../logic/table/InventoryCategories_TH';
 import { TableHeader } from '../../../logic/table/TableHeader';
+import { GlobalActionsService } from '../../../services/Generic/global-actions.service';
 
 @Component({
   selector: 'app-inventory-categories-list',
@@ -19,28 +20,21 @@ export class InventoryCategoriesListComponent implements OnInit, AfterViewInit, 
   tableHeaders: TableHeader[] = [new InventoryCategories_TH()];
 
   constructor(
-    private apiCalling: GenericAPICallingService,
-    private route: ActivatedRoute
+    private gloablService: GlobalActionsService,
+    private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef
   ) {
 
   }
 
   ngOnInit(): void {
-    this.apiCalling.get<InventoryCategoryModel[]>(Controller.InventoryCategory, API.GetAll).subscribe(
-      {
-        next: (response: InventoryCategoryModel[]) => {
-          this.Items = response;
-          console.log('Inventory Stores fetched successfully:', this.Items);
-        },
-        error: (error) => {
-          console.error('Error fetching inventory stores:', error);
-        },
-      }
-    );
+    this.cdr.detectChanges();
   }
 
   ngAfterViewInit(): void {
-
+    this.gloablService.getData(Controller.InventoryCategory, API.GetAll);
+    console.log('************* ', this.gloablService.Items);
+    this.Items = this.gloablService.Items as InventoryCategoryModel[];
   }
 
   ngOnDestroy(): void {
