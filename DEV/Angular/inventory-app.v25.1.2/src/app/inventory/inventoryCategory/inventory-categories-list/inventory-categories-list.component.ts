@@ -10,11 +10,12 @@ import { GlobalActionsService } from '../../../services/Generic/global-actions.s
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { CommonModule } from '@angular/common';
 import { Application } from '../../../services/Generic/Application';
+import { RegularListCardComponent } from '../../../core/common/cards/regularListCards/regular-list-card/regular-list-card.component';
 
 @Component({
   selector: 'app-inventory-categories-list',
   imports: [
-    RegularListPageComponent,
+    RegularListCardComponent,
     CommonModule,
     NgxSpinnerModule,
     RouterModule

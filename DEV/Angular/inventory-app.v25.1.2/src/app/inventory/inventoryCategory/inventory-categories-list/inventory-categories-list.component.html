@@ -1,4 +1,4 @@
-<app-regular-list-page 
+<app-regular-list-card 
     [tableHeaders] = 'tableHeaders' 
     [showSearchInput]="true" 
     EntityName="Category" 
@@ -7,7 +7,7 @@
     [showAddButton]="true"
     [tableData]="this.gloablService.DataItemsLoaded"
     [showTableRowActions]="true">
-</app-regular-list-page>
+</app-regular-list-card>
 
 <ngx-spinner 
     bdColor = "rgba(0, 0, 0, 0.8)" 
