@@ -13,7 +13,6 @@ export class GenericAPICallingService {
   constructor(private http: HttpClient) { }
 
    get<T>(controller: Controller, api: API, params?: { [key: string]: any }): Observable<T> {
-    console.log('GenericAPICallingService.get called with:', controller, api, params);
     let url = this.baseURL + controller + '/' + api;
     if (params) {
       const query = new URLSearchParams(params).toString();

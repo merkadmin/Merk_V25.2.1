@@ -36,7 +36,9 @@
               "src/styles.scss",
               "src/assets/css/style.bundle.css",
               "src/assets/plugins/global/plugins.bundle.css",
-              "src/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css"
+              "src/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css",
+              "node_modules/ngx-spinner/animations/square-jelly-box.css" ,
+              "node_modules/ngx-spinner/animations/ball-atom.css" 
             ],
             "scripts": [
               
