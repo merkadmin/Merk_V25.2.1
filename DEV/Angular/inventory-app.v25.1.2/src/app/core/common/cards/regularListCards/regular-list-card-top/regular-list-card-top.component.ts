@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RegularListCardListingComponent } from '../regular-list-card-listing/regular-list-card-listing.component';
 
 @Component({
@@ -10,5 +10,5 @@ import { RegularListCardListingComponent } from '../regular-list-card-listing/re
   styleUrl: './regular-list-card-top.component.scss'
 })
 export class RegularListCardTopComponent {
-
+  
 }
