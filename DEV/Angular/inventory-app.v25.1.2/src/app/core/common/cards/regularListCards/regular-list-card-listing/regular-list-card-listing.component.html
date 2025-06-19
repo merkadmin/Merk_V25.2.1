@@ -4,7 +4,7 @@
             <div class="card-header border-0 pt-6">
 
                 <div class="card-title">
-                    <app-search-input *ngIf='showSearchInput' [searchText]="EntityName ?? ''"></app-search-input>
+                    <app-search-input *ngIf='showSearchInput' [searchText]="this.gloablService.TranslateBL.PageTitleName_en ?? ''"></app-search-input>
                 </div>
 
                 <div class="card-toolbar">
@@ -102,7 +102,7 @@
                             </span>
                         </app-action-button>
 
-                        <app-action-button *ngIf="showAddButton" [text]="'Add ' + (EntityName ?? '')">
+                        <app-action-button *ngIf="showAddButton" [text]="'Add ' + (this.gloablService.TranslateBL.PageTitleName_en ?? '')">
                             <i class="bi bi-plus-lg"></i>
                         </app-action-button>
 

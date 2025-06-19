@@ -26,7 +26,6 @@ export class RegularListCardListingComponent implements OnInit, OnChanges, After
   @Input() showTableRowActions: boolean | undefined;
 
   @Input() showSearchInput: boolean | undefined;
-  @Input() EntityName: string | undefined;
   @Input() showFilterButton: boolean | undefined;
   @Input() showExportButton: boolean | undefined;
   @Input() showAddButton: boolean | undefined;

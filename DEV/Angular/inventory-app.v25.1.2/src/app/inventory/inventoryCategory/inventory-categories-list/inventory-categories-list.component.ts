@@ -3,7 +3,6 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { InventoryCategoryModel } from '../../../logic/models/InventoryCategoryModel';
 import { Controller } from '../../../services/common/Controller';
 import { API } from '../../../services/common/API';
-import { RegularListPageComponent } from "../../../core/common/regular-list-page/regular-list-page.component";
 import { InventoryCategories_TH } from '../../../logic/table/InventoryCategories_TH';
 import { TableHeader } from '../../../logic/table/TableHeader';
 import { GlobalActionsService } from '../../../services/Generic/global-actions.service';
@@ -11,10 +10,12 @@ import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { CommonModule } from '@angular/common';
 import { Application } from '../../../services/Generic/Application';
 import { RegularListCardComponent } from '../../../core/common/cards/regularListCards/regular-list-card/regular-list-card.component';
+import { TranslateBL } from '../../../services/Generic/translate/TranslateBL';
 
 @Component({
   selector: 'app-inventory-categories-list',
-  imports: [
+  imports: 
+  [
     RegularListCardComponent,
     CommonModule,
     NgxSpinnerModule,
@@ -33,6 +34,12 @@ export class InventoryCategoriesListComponent implements OnInit, AfterViewInit, 
     private spinner: NgxSpinnerService
   ) {
     this.gloablService.Application = Application.InventoryCategoryList;
+    this.gloablService.TranslateBL ={
+      PageTitleName_en: "Category",
+      PageTitleName_ar: "فئة",
+      PageTitleName_en_pl: "Categories",
+      PageTitleName_ar_pl: "الفئات",
+    }
   }
 
   ngOnInit(): void {

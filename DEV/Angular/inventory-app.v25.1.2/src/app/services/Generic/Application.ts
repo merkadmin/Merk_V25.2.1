@@ -1,3 +1,4 @@
 export enum Application{
-    InventoryCategoryList
+    InventoryCategoryList,
+    InventoryStoresList
 }

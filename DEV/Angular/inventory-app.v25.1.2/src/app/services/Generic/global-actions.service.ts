@@ -5,6 +5,7 @@ import { API } from '../common/API';
 import { Model } from '../../logic/models/Model';
 import { Observable } from 'rxjs';
 import { Application } from './Application';
+import { TranslateBL } from './translate/TranslateBL';
 
 @Injectable({
   providedIn: 'root',
@@ -46,6 +47,14 @@ export class GlobalActionsService {
   }
   set API(value: API) {
     this._api = value;
+  }
+
+  private _traslatedBL: TranslateBL = {} as TranslateBL;
+  get TranslateBL(): TranslateBL{
+    return this._traslatedBL;
+  }
+  set TranslateBL(value: TranslateBL){
+    this._traslatedBL = value;
   }
 
   constructor(
