@@ -6,6 +6,7 @@ import { Model } from '../../logic/models/Model';
 import { Observable } from 'rxjs';
 import { Application } from './Application';
 import { TranslateBL } from './translate/TranslateBL';
+import { AsideSectionCollection } from '../../core/common/aside-nav-bar/aside-section/AsideSectionCollection';
 
 @Injectable({
   providedIn: 'root',
@@ -57,6 +58,14 @@ export class GlobalActionsService {
     this._traslatedBL = value;
   }
 
+  private _asideItems: AsideSectionCollection[] = [] as AsideSectionCollection[];
+  get AsideItems(): AsideSectionCollection[]{
+    return this._asideItems;
+  }
+  set AsideItems(value: AsideSectionCollection[]){
+    this._asideItems = value;
+  }
+
   constructor(
     private gernericApiCalling: GenericAPICallingService
   ) {
@@ -65,5 +74,16 @@ export class GlobalActionsService {
 
   getData(controller: Controller, api: API): Observable<Model[]> {
     return this.gernericApiCalling.get<Model[]>(controller, api);
+  }
+
+  setApplication(controller: Controller, api: API, application: Application, translatedItems: TranslateBL){
+    this.Controller = controller;
+    this.API = api;
+    this.Application = application;
+    this.TranslateBL = translatedItems;
+  }
+
+  setAsideNavBarItems(){
+    
   }
 }

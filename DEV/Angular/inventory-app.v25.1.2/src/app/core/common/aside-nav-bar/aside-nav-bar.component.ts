@@ -4,7 +4,10 @@ import { AsideSectionCollection } from './aside-section/AsideSectionCollection';
 
 @Component({
   selector: 'app-aside-nav-bar',
-  imports: [AsideSectionComponent],
+  imports: 
+  [
+    AsideSectionComponent
+  ],
   templateUrl: './aside-nav-bar.component.html',
   styleUrl: './aside-nav-bar.component.scss',
 })

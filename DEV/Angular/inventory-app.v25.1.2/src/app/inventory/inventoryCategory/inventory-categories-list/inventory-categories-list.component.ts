@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { InventoryCategoryModel } from '../../../logic/models/InventoryCategoryModel';
 import { Controller } from '../../../services/common/Controller';
@@ -14,18 +20,19 @@ import { TranslateBL } from '../../../services/Generic/translate/TranslateBL';
 
 @Component({
   selector: 'app-inventory-categories-list',
-  imports: 
-  [
+  imports: [
     RegularListCardComponent,
     CommonModule,
     NgxSpinnerModule,
-    RouterModule
+    RouterModule,
   ],
   templateUrl: './inventory-categories-list.component.html',
   styleUrl: './inventory-categories-list.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class InventoryCategoriesListComponent implements OnInit, AfterViewInit, OnDestroy{
+export class InventoryCategoriesListComponent
+  implements OnInit, AfterViewInit, OnDestroy
+{
   tableHeaders: TableHeader[] = [new InventoryCategories_TH()];
 
   constructor(
@@ -33,37 +40,46 @@ export class InventoryCategoriesListComponent implements OnInit, AfterViewInit, 
     private route: ActivatedRoute,
     private spinner: NgxSpinnerService
   ) {
-    this.gloablService.Application = Application.InventoryCategoryList;
-    this.gloablService.TranslateBL ={
-      PageTitleName_en: "Category",
-      PageTitleName_ar: "فئة",
-      PageTitleName_en_pl: "Categories",
-      PageTitleName_ar_pl: "الفئات",
-    }
+    this.gloablService.setApplication(
+      Controller.InventoryStore,
+      API.GetAllIsOnDuty,
+      Application.InventoryCategoryList,
+      {
+        PageTitleName_en: 'Category',
+        PageTitleName_ar: 'فئة',
+        PageTitleName_en_pl: 'Categories',
+        PageTitleName_ar_pl: 'الفئات',
+      }
+    );
+
+    console.log(
+      'From Category this.gloablService.Controller',
+      this.gloablService.Controller
+    );
+    console.log('From Category this.gloablService.API', this.gloablService.API);
   }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.spinner.show();
 
-    this.gloablService.getData(Controller.InventoryCategory, API.GetAllIsOnDuty).subscribe({
+    this.gloablService
+      .getData(this.gloablService.Controller, this.gloablService.API)
+      .subscribe({
         next: (response: any[]) => {
-          this.gloablService.DataItemsLoaded = response.map(item => Object.assign(new InventoryCategoryModel(), item));
-          if(this.gloablService.DataItemsLoaded) {
+          this.gloablService.DataItemsLoaded = response.map((item) =>
+            Object.assign(new InventoryCategoryModel(), item)
+          );
+          if (this.gloablService.DataItemsLoaded) {
             this.spinner.hide();
           }
         },
         error: (error) => {
           console.error('Error fetching inventory stores:', error);
         },
-      }
-    );
+      });
   }
 
-  ngOnDestroy(): void {
-    
-  }
+  ngOnDestroy(): void {}
 }

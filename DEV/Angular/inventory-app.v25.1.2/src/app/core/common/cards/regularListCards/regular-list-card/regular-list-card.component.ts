@@ -19,9 +19,7 @@ export class RegularListCardComponent implements OnInit, OnChanges, AfterViewChe
   @Input() tableHeaders: TableHeader[] | undefined;
   @Input() tableData: any[] | undefined;
   @Input() showTableRowActions: boolean | undefined;
-
   @Input() showSearchInput: boolean | undefined;
-  @Input() EntityName: string | undefined;
   @Input() showFilterButton: boolean | undefined;
   @Input() showExportButton: boolean | undefined;
   @Input() showAddButton: boolean | undefined;

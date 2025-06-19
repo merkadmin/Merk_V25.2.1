@@ -32,8 +32,7 @@ import { Application } from '../../../services/Generic/Application';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class InventoryStoresListComponent
-  implements OnInit, AfterViewInit, OnDestroy
-{
+  implements OnInit, AfterViewInit, OnDestroy{
   tableHeaders: TableHeader[] = [new InventoryStores_TH()];
 
   constructor(
@@ -41,22 +40,31 @@ export class InventoryStoresListComponent
     private route: ActivatedRoute,
     private spinner: NgxSpinnerService
   ) {
-    this.gloablService.Application = Application.InventoryStoresList;
-    this.gloablService.TranslateBL = {
-      PageTitleName_en: 'Store',
-      PageTitleName_ar: 'مخزن',
-      PageTitleName_en_pl: 'Stores',
-      PageTitleName_ar_pl: 'المخازن',
-    };
+    this.gloablService.setApplication(
+      Controller.InventoryStore, 
+      API.GetAllIsOnDuty, 
+      Application.InventoryStoresList,
+      {
+        PageTitleName_en: 'Store',
+        PageTitleName_ar: 'مخزن',
+        PageTitleName_en_pl: 'Stores',
+        PageTitleName_ar_pl: 'المخازن',
+      }
+    );
+
+    console.log('From Store this.gloablService.Controller', this.gloablService.Controller);
+    console.log('From Store this.gloablService.API', this.gloablService.API);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   ngAfterViewInit(): void {
     this.spinner.show();
 
     this.gloablService
-      .getData(Controller.InventoryStore, API.GetAllIsOnDuty)
+      .getData(this.gloablService.Controller, this.gloablService.API)
       .subscribe({
         next: (response: any[]) => {
           this.gloablService.DataItemsLoaded = response.map((item) =>
@@ -72,5 +80,7 @@ export class InventoryStoresListComponent
       });
   }
 
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void {
+    
+  }
 }

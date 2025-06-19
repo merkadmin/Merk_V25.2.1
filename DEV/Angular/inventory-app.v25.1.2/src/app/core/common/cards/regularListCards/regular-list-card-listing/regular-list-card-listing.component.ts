@@ -66,6 +66,8 @@ export class RegularListCardListingComponent implements OnInit, OnChanges, After
 
   onRefreshData(){
     this.spinner.show();
+    console.log('------- this.gloablService.Controller', this.gloablService.Controller);
+    console.log('------- this.gloablService.API', this.gloablService.API);
     this.gloablService.getData(this.gloablService.Controller, this.gloablService.API).subscribe({
       next: (response) => {
         this.gloablService.DataItemsLoaded = response.map(item => Object.assign({}, item));
@@ -74,7 +76,7 @@ export class RegularListCardListingComponent implements OnInit, OnChanges, After
           }
       },
       error: (error) => {
-          console.error('Error fetching inventory stores:', error);
+          console.error('Error fetching data:', error);
         },
     });
   }
