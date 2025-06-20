@@ -1,46 +1,86 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { GenericAPICallingService } from '../../../services/common/generic-apicalling.service';
 import { InventoryStoreModel } from '../../../logic/models/InventoryStoreModel';
 import { Controller } from '../../../services/common/Controller';
 import { API } from '../../../services/common/API';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { RegularListCardComponent } from '../../../core/common/cards/regularListCards/regular-list-card/regular-list-card.component';
+import { CommonModule } from '@angular/common';
+import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
+import { TableHeader } from '../../../logic/table/TableHeader';
+import { InventoryStores_TH } from '../../../logic/table/InventoryStores_TH';
+import { GlobalActionsService } from '../../../services/Generic/global-actions.service';
+import { Application } from '../../../services/Generic/Application';
 
 @Component({
   selector: 'app-inventory-stores-list',
   imports: [
+    RegularListCardComponent,
+    CommonModule,
+    NgxSpinnerModule,
     RouterModule,
   ],
-  providers: 
-  [
-
-  ],
+  providers: [],
   templateUrl: './inventory-stores-list.component.html',
   styleUrl: './inventory-stores-list.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class InventoryStoresListComponent implements OnInit, AfterViewInit, OnDestroy
-{
-  Items: InventoryStoreModel[] = [];
+export class InventoryStoresListComponent
+  implements OnInit, AfterViewInit, OnDestroy{
+  tableHeaders: TableHeader[] = [new InventoryStores_TH()];
 
   constructor(
-    private apiCalling: GenericAPICallingService,
-    private route: ActivatedRoute
+    public gloablService: GlobalActionsService,
+    private route: ActivatedRoute,
+    private spinner: NgxSpinnerService
   ) {
+    this.gloablService.setApplication(
+      Controller.InventoryStore, 
+      API.GetAllIsOnDuty, 
+      Application.InventoryStoresList,
+      {
+        PageTitleName_en: 'Store',
+        PageTitleName_ar: 'مخزن',
+        PageTitleName_en_pl: 'Stores',
+        PageTitleName_ar_pl: 'المخازن',
+      }
+    );
 
+    console.log('From Store this.gloablService.Controller', this.gloablService.Controller);
+    console.log('From Store this.gloablService.API', this.gloablService.API);
   }
 
   ngOnInit(): void {
-    this.apiCalling.get<InventoryStoreModel[]>(Controller.InventoryStore, API.GetAll).subscribe(
-      {
-        next: (response: InventoryStoreModel[]) => {
-          this.Items = response;
-          console.log('Inventory Stores fetched successfully:', this.Items);
+
+  }
+
+  ngAfterViewInit(): void {
+    this.spinner.show();
+
+    this.gloablService
+      .getData(this.gloablService.Controller, this.gloablService.API)
+      .subscribe({
+        next: (response: any[]) => {
+          this.gloablService.DataItemsLoaded = response.map((item) =>
+            Object.assign(new InventoryStoreModel(), item)
+          );
+          if (this.gloablService.DataItemsLoaded) {
+            this.spinner.hide();
+          }
         },
         error: (error) => {
           console.error('Error fetching inventory stores:', error);
         },
-      }
-    );
+      });
   }
-  ngAfterViewInit(): void {}
-  ngOnDestroy(): void {}
+
+  ngOnDestroy(): void {
+    
+  }
 }

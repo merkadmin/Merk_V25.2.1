@@ -1,10 +1,18 @@
-<app-regular-list-page 
+<app-regular-list-card 
     [tableHeaders] = 'tableHeaders' 
     [showSearchInput]="true" 
-    EntityName="Category" 
     [showFilterButton]="true" 
     [showExportButton]="true" 
     [showAddButton]="true"
-    [tableData]="Items"
+    [tableData]="this.gloablService.DataItemsLoaded"
     [showTableRowActions]="true">
-</app-regular-list-page>
+</app-regular-list-card>
+
+<ngx-spinner 
+    bdColor = "rgba(0, 0, 0, 0.8)" 
+    size = "medium" 
+    color = "#e8a100"
+    type = "ball-atom" 
+    [fullScreen] = "true">
+    <p style="color: white" > Loading... </p>
+</ngx-spinner>

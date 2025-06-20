@@ -16,6 +16,6 @@ export class AsideSectionComponent implements AfterViewInit {
   @Input() AsideSectionItem: AsideSectionCollection | undefined;
 
   ngAfterViewInit(): void {
-    console.log('AsideSectionItem:', this.AsideSectionItem);
+    
   }
 }

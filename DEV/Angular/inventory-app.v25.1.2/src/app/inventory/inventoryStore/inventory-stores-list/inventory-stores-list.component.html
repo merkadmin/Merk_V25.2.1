@@ -1,1 +1,18 @@
-<p>inventory-stores-list works!</p>
+<app-regular-list-card 
+    [tableHeaders] = 'tableHeaders' 
+    [showSearchInput]="true" 
+    [showFilterButton]="true" 
+    [showExportButton]="true" 
+    [showAddButton]="true"
+    [tableData]="this.gloablService.DataItemsLoaded"
+    [showTableRowActions]="true">
+</app-regular-list-card>
+
+<ngx-spinner 
+    bdColor = "rgba(0, 0, 0, 0.8)" 
+    size = "medium" 
+    color = "#e8a100"
+    type = "ball-atom" 
+    [fullScreen] = "true">
+    <p style="color: white" > Loading... </p>
+</ngx-spinner>

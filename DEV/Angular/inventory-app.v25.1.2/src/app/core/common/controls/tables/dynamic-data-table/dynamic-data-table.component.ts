@@ -13,7 +13,10 @@ declare const KTMenu: any;
 
 @Component({
   selector: 'app-dynamic-data-table',
-  imports: [CommonModule],
+  imports: 
+  [
+    CommonModule
+  ],
   templateUrl: './dynamic-data-table.component.html',
   styleUrl: './dynamic-data-table.component.scss',
 })

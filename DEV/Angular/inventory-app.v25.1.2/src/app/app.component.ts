@@ -2,14 +2,13 @@ import { AfterViewInit, Component, OnChanges, SimpleChanges } from '@angular/cor
 import { RouterOutlet } from '@angular/router';
 import { AsideNavBarComponent } from "./core/common/aside-nav-bar/aside-nav-bar.component";
 import { HeaderControlsComponent } from './core/common/header-controls/header-controls.component';
-// declare const KTMenu: any;
 
 @Component({
   selector: 'app-root',
   imports: [
     RouterOutlet,
     AsideNavBarComponent,
-    HeaderControlsComponent
+    HeaderControlsComponent,
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

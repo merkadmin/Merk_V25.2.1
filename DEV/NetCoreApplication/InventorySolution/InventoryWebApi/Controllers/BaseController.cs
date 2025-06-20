@@ -22,8 +22,24 @@ namespace InventoryWebAPI.Controllers
 		[HttpGet("GetAll")]
 		public virtual async Task<ActionResult<List<TEntity>>> GetAll()
 		{
-			List <TEntity> entitiesList = await _context.Set<TEntity>().ToListAsync();
-			return Ok(entitiesList);
+			List<TEntity> entitiesList = await _context.Set<TEntity>().ToListAsync();
+            return Ok(entitiesList);
 		}
-	}
+
+        [HttpGet("GetAllIsOnDuty")]
+        public virtual async Task<ActionResult<List<TEntity>>> GetAllIsOnDuty()
+        {
+            List<TEntity> entitiesList = await _context.Set<TEntity>().Where(item => item.IsOnDuty).ToListAsync();
+            return Ok(entitiesList);
+        }
+
+        [HttpPut("DeleteItem")]
+        public virtual async Task<ActionResult<TEntity>> DeleteItem(long entityID)
+        {
+            List<InventoryCategoryCu> entity = await _context.InventoryCategoryCus.Where(item => item.Id == entityID).ToListAsync();
+            entity[0].IsOnDuty = false;
+            return Ok(_context.SaveChanges() != -1);
+        }
+
+    }
 }

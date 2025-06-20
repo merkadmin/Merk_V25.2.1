@@ -1,0 +1,11 @@
+<app-regular-list-card-top></app-regular-list-card-top>
+
+<app-regular-list-card-listing
+    [tableHeaders] = 'tableHeaders' 
+    [showSearchInput]="true" 
+    [showFilterButton]="true" 
+    [showExportButton]="true" 
+    [showAddButton]="true"
+    [tableData]="this.gloablService.DataItemsLoaded"
+    [showTableRowActions]="true"
+></app-regular-list-card-listing>

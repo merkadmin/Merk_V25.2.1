@@ -4,14 +4,11 @@ export class InventoryStores_TH extends TableHeader {
     constructor() {
         super();
         this.tableHeaders = [
-            { name: 'id', label: 'ID', type: 'number' },
-            { name: 'name', label: 'Name', type: 'string' },
-            { name: 'category', label: 'Category', type: 'string' },
-            { name: 'quantity', label: 'Quantity', type: 'number' },
-            { name: 'unitPrice', label: 'Unit Price', type: 'number' },
-            { name: 'totalValue', label: 'Total Value', type: 'number' },
-            { name: 'supplierName', label: 'Supplier Name', type: 'string' },
-            { name: 'lastUpdated', label: 'Last Updated', type: 'date' }
+            { name: 'InternalCode', label: 'Code', type: 'string' },
+            { name: 'NameP', label: 'Name', type: 'string' },
+            { name: 'ParentStoreName', label: 'Parent Store', type: 'string' },
+            { name: 'IsMain', label: 'Main', type: 'boolean' }, 
+            { name: 'Description', label: 'Description', type: 'string' }
         ];
     }
 }
