@@ -1,32 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { AsideSectionComponent } from './aside-section/aside-section.component';
 import { AsideSectionCollection } from './aside-section/AsideSectionCollection';
+import { GlobalActionsService } from '../../../services/Generic/global-actions.service';
+import { CommonModule } from '@angular/common';
+import { AsideNavBarService } from '../../../services/Generic/aside-nav-bar.service';
 
 @Component({
   selector: 'app-aside-nav-bar',
   imports: 
   [
-    AsideSectionComponent
+    AsideSectionComponent,
+    CommonModule
   ],
   templateUrl: './aside-nav-bar.component.html',
   styleUrl: './aside-nav-bar.component.scss',
 })
 export class AsideNavBarComponent implements OnInit {
-  Settings_AsideSectionItem: AsideSectionCollection = new AsideSectionCollection(
-    'Settings',
-    'bi bi-archive fs-3',
-    'Inventory',
-    '',
-    [
-      { name: 'Stores', nameIcon: 'bullet bullet-dot', order: 2, link: 'stores' },
-      { name: 'Categories', nameIcon: 'bullet bullet-dot', order: 1, link: 'categories' },
-      { name: 'Items', nameIcon: 'bullet bullet-dot', order: 3, link: 'items' },
-    ]
-  );
+  Settings_AsideSectionItem: AsideSectionCollection | undefined;
+
+  constructor(
+    private globalActionsService: GlobalActionsService,
+    public asideNavBarService: AsideNavBarService
+  ) {
+    this.asideNavBarService.setAsideNavBarItems();
+  }
+
 
   ngOnInit(): void {
-    if (this.Settings_AsideSectionItem?.itemsInside) {
-      this.Settings_AsideSectionItem.itemsInside.sort((a, b) => a.order - b.order);
-    }
+    this.asideNavBarService.AsideItems.forEach((item) => {
+      item.itemsInside?.sort((a, b) => a.order - b.order);
+    });
   }
 }

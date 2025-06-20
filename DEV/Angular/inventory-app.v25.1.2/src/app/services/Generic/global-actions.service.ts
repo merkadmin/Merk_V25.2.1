@@ -58,14 +58,6 @@ export class GlobalActionsService {
     this._traslatedBL = value;
   }
 
-  private _asideItems: AsideSectionCollection[] = [] as AsideSectionCollection[];
-  get AsideItems(): AsideSectionCollection[]{
-    return this._asideItems;
-  }
-  set AsideItems(value: AsideSectionCollection[]){
-    this._asideItems = value;
-  }
-
   constructor(
     private gernericApiCalling: GenericAPICallingService
   ) {
@@ -81,9 +73,5 @@ export class GlobalActionsService {
     this.API = api;
     this.Application = application;
     this.TranslateBL = translatedItems;
-  }
-
-  setAsideNavBarItems(){
-    
   }
 }

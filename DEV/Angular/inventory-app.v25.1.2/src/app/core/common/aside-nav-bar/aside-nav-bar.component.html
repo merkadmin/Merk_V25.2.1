@@ -57,13 +57,9 @@
                         <span class="menu-title">Landing Page</span>
                     </a>
                 </div>
-
-                <!-- <div class="menu-item">
-                <div class="menu-content pt-8 pb-2">
-                    <span class="menu-section text-muted text-uppercase fs-8 ls-1">Settings</span>
-                </div>
-            </div> -->
-                <app-aside-section [AsideSectionItem]="Settings_AsideSectionItem"></app-aside-section>
+                <ng-container *ngFor="let item of this.asideNavBarService.AsideItems; let i = index">
+                    <app-aside-section [AsideSectionItem]="item"></app-aside-section>
+                </ng-container>
 
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
