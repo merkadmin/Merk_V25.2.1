@@ -30,6 +30,7 @@ namespace InventoryWebAPI.Controllers
         public virtual async Task<ActionResult<List<TEntity>>> GetAllIsOnDuty()
         {
             List<TEntity> entitiesList = await _context.Set<TEntity>().Where(item => item.IsOnDuty).ToListAsync();
+			
             return Ok(entitiesList);
         }
 
