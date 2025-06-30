@@ -17,9 +17,19 @@ namespace InventoryWebApi.Controllers
         [HttpGet("GetInventoryStores")]
         public virtual async Task<ActionResult<List<GetInventoryStores>>> GetInventoryStores(long inventoryStoreID)
         {
-            var result = await _context.ExecuteStoredProcedureAsync<GetInventoryStores>("GetInventoryStores", new() {
+            List<GetInventoryStores> result = await _context.ExecuteStoredProcedureAsync<GetInventoryStores>("GetInventoryStores", new() {
                 { "inventoryStoreID", inventoryStoreID }
             });
+
+            if(result == null || result.Count == 0)
+            {
+                return NotFound("No inventory stores found for the given ID.");
+            }
+
+            foreach (GetInventoryStores inventoryStore in result)
+            {
+                
+            }
 
             return Ok(result);
         }
