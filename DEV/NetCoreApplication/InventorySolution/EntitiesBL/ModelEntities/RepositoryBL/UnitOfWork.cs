@@ -48,8 +48,8 @@ namespace EntitiesBL.ModelEntities.RepositoryBL
 			where TEntity : class, IDBCommon, new()
 		{
 			try
-			{
-				TEntity existingEntity = GetEntity<TEntity>(entity.EntityID);
+            {
+                TEntity existingEntity = new TEntity();//GetEntity<TEntity>(entity.EntityID);
 				_context.Entry(existingEntity).CurrentValues.SetValues(entity);
 				return SaveChanges();
 			}
@@ -79,7 +79,7 @@ namespace EntitiesBL.ModelEntities.RepositoryBL
 			{
 				//TODO :: Check from System Configuration if the owner wants to delete forever or just mark it as IsOnDuty = false
 				Repository<TEntity> repository = new Repository<TEntity>(_context);
-				TEntity updatedEntity = GetEntity<TEntity>(entity.EntityID);
+                TEntity updatedEntity = new TEntity();//GetEntity<TEntity>(entity.EntityID);
 				repository.RemoveEntity(updatedEntity);
 				return SaveChanges();
 
@@ -102,8 +102,8 @@ namespace EntitiesBL.ModelEntities.RepositoryBL
 		public int UpdateChanges<TEntity>(IDBCommon activeDbItem) where TEntity : class, new()
 		{
 			try
-			{
-				TEntity updatedEntity = GetEntity<TEntity>(activeDbItem.EntityID);
+            {
+                TEntity updatedEntity = new TEntity(); // GetEntity<TEntity>(activeDbItem.EntityID);
 				_context.Entry(updatedEntity).CurrentValues.SetValues(activeDbItem);
 				return SaveChanges();
 			}

@@ -2,7 +2,7 @@
 
 namespace EntitiesBL.ModelEntities.GeneratedEnitities
 {
-	public partial class InventoryItemCu : DBCommon
-	{
+	public partial class InventoryItemCu : IDBCommon
+    {
 	}
 }

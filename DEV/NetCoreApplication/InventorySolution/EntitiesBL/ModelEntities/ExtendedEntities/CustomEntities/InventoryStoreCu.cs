@@ -2,8 +2,7 @@
 
 namespace EntitiesBL.ModelEntities.GeneratedEnitities
 {
-    public partial class InventoryStoreCu : DBCommon
+    public partial class InventoryStoreCu: IDBCommon
     {
-        public override long EntityID => Id;
     }
 }

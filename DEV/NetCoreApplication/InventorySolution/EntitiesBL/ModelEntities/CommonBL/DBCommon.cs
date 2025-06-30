@@ -1,135 +1,53 @@
-﻿using EntitiesBL.ModelEntities.RepositoryBL;
-using System.Linq.Expressions;
-using EntitiesBL.ModelEntities.GeneratedEnitities;
+﻿using EntitiesBL.ModelEntities.GeneratedEnitities;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace EntitiesBL.ModelEntities.CommonBL
 {
-	public class DBCommon : IDBCommon
-	{
-		#region Implementation of IDBCommon
+    public class DBCommon
+    {
+        //public static async Task<List<TEntity>> GetFromStoreProcedures<TEntity>(InventoryDbContext context)
+        //    where TEntity : class, IDBCommon
+        //{
+        //    FormattableString storedProcName = $"TEntity";
+        //    var result = await _context.Database.SqlQuery<GetInventoryStores>($"GetInventoryStores {inventoryStoreID}").ToListAsync();
+        //    return list;
+        //}
 
-		public virtual long EntityID { get; }
+        //public static async Task<List<TEntity>> ExecuteStoredProcedureAsync<TEntity>(InventoryDbContext context, string storedProcedureName, params object[] parameters)
+        //    where TEntity : class, IDBCommon
+        //{
+        //    //FormattableString sql = BuildSqlWithParameters(storedProcedureName, parameters.Length);
+        //    FormattableString sql = $"{storedProcedureName} {parameters[0]}";
+        //    return await context.Database.SqlQuery<TEntity>(sql).ToListAsync();
+        //}
 
-		public virtual bool IsOnDuty { get; set; }
+        public static async Task<List<TEntity>> ExecuteStoredProcedureAsync<TEntity>(InventoryDbContext context, string procedureName, Dictionary<string, object> parameters)
+            where TEntity : class
+        {
+            // Build SQL like: EXEC GetInventoryStores @param1, @param2
+            var sql = $"EXEC {procedureName} " +
+                      string.Join(", ", parameters.Keys.Select(k => $"@{k}"));
 
-		public long InsertedBy { get; set; }
+            // Convert to SqlParameter[]
+            var sqlParams = parameters
+                .Select(p => new SqlParameter($"@{p.Key}", p.Value ?? DBNull.Value))
+                .ToArray();
 
-		public DateTime InsertedDate { get; set; }
+            // Execute stored procedure using FromSqlRaw
+            return await context.Set<TEntity>()
+                .FromSqlRaw(sql, sqlParams)
+                .ToListAsync();
+        }
 
-		//public virtual DB_CommonTransactionType DBCommonTransactionType { get; set; }
+        private static FormattableString BuildSqlWithParameters(string storedProcedure, int parameterCount)
+        {
+            if (parameterCount == 0)
+                return $"EXEC {storedProcedure}";
 
-		#endregion
-
-		public static IDBCommon ActiveDBItem { get; set; }
-
-		public static string ServerName { get; set; }
-
-		public static string DBName { get; set; }
-
-		public static bool UseMerkCredentials { get; set; }
-
-		public virtual bool LoadFromDB { get; }
-
-		//public virtual DBCommonEntitiesType TableType { get; private set; }
-
-		public static InventoryDbContext _context;
-
-		public static InventoryDbContext DBContext_External
-		{
-			get
-			{
-				if (_context == null)
-					return new InventoryDbContext();
-				return _context;
-			}
-		}
-
-		public static InventoryDbContext DBContext_Embedded
-		{
-			get
-			{
-				if (_context == null)
-					return new InventoryDbContext();
-				return _context;
-			}
-		}
-
-		public static IEnumerable<TEntity> GetItemsList<TEntity>()
-			where TEntity : class, IDBCommon, new()
-		{
-			IEnumerable<TEntity> itemList;
-
-			using (UnitOfWork unitOfWork = new UnitOfWork(DBContext_External))
-				itemList = unitOfWork.GetAllEntities<TEntity>(item => item.IsOnDuty);
-
-			return itemList;
-		}
-
-		public static IEnumerable<TEntity> GetItemsList<TEntity>(List<long> ids)
-			where TEntity : class, IDBCommon, new()
-		{
-			IEnumerable<TEntity> itemList;
-
-			using (UnitOfWork unitOfWork = new UnitOfWork(DBContext_External))
-				itemList = unitOfWork.GetAllEntities<TEntity>(item => item.IsOnDuty && ids.Contains(item.EntityID));
-
-			return itemList;
-		}
-
-		public static long GetEntitiesCount<TEntity>()
-			where TEntity : class, IDBCommon, new()
-		{
-			using (UnitOfWork unitOfWork = new UnitOfWork(DBContext_External))
-				return unitOfWork.GetEntitiesCount<TEntity>(item => item.IsOnDuty);
-		}
-
-		public static string GetNextInternalCode<TEntity>(string prefix = "", int increment = 1)
-			where TEntity : class, IDBCommon, new()
-		{
-			long itemsCount = GetEntitiesCount<TEntity>();
-			itemsCount += increment;
-			string internalCode = prefix + itemsCount.ToString("00000");
-
-			return internalCode;
-		}
-
-		public static IEnumerable<TEntity> GetItemsList<TEntity>(Expression<Func<TEntity, bool>> predicate)
-			where TEntity : class, new()
-		{
-			IEnumerable<TEntity> list = null;
-
-			using (UnitOfWork unitOfWork = new UnitOfWork(DBContext_External))
-				list = unitOfWork.GetAllEntities<TEntity>(predicate);
-
-			return list;
-		}
-
-		public static TEntity GetItemByID<TEntity>(long id)
-			where TEntity : class, new()
-		{
-			using (UnitOfWork unitOfWork = new UnitOfWork(DBContext_External))
-				return unitOfWork.GetEntity<TEntity>(id);
-		}
-
-		public static bool SaveChanges<TEntity>(TEntity entity)
-			where TEntity : DBCommon, IDBCommon, new()
-		{
-			int count = 0;
-			//using (UnitOfWork unitOfWork = new UnitOfWork(DBCommon.DBContext_External))
-			//{
-			//	if (entity.DBCommonTransactionType == DB_CommonTransactionType.SaveNew)
-			//	{
-			//		unitOfWork.GetList<TEntity>().AddEntity(entity);
-			//		count = unitOfWork.SaveChanges();
-			//	}
-			//	else
-			//	{
-			//		unitOfWork.UpdateChanges(entity);
-			//		count = 1;
-			//	}
-			//}
-
-			return count > 0;
-		}
-	}
+            string placeholders = string.Join(", ", Enumerable.Range(0, parameterCount).Select(i => $"{{{i}}}"));
+            return $"EXEC {storedProcedure} {placeholders}";
+        }
+    }
 }
