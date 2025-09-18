@@ -431,3 +431,4 @@ DEV/NetCoreApplication/CommonBL/obj/project.nuget.cache
 /DEV/NetCoreApplication/CommonBL/bin
 /DEV/NetCoreApplication/InventorySolution/EntitiesBL/obj
 /DEV/NetCoreApplication/InventorySolution/InventoryWebApi/obj
+/DEV/NetFrameworkApplication/.vs
