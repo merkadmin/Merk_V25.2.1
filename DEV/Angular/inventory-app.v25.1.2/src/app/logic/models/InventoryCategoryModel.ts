@@ -2,8 +2,8 @@ import { Model } from "./Model";
 
 export class InventoryCategoryModel extends Model {
     EntityID: number | undefined;
-    NameP: string | undefined;
-    NameS: string | undefined;
-    InternalCode: string | undefined;
+    CategoryName_P: string | undefined;
+    CategoryName_S: string | undefined;
+    CategoryInternalCode: string | undefined;
     Description: string | undefined;
 }

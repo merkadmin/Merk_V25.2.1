@@ -8,7 +8,7 @@ import { API } from './API';
   providedIn: 'root'
 })
 export class GenericAPICallingService {
-  private baseURL: string = 'https://localhost:7272/';
+  private baseURL: string = 'https://localhost:44379/';
 
   constructor(private http: HttpClient) { }
 

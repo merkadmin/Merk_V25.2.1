@@ -29,7 +29,7 @@ export class GlobalActionsService {
     switch (value) {
       case Application.InventoryCategoryList:
         this.Controller = Controller.InventoryCategory;
-        this.API = API.GetAllIsOnDuty;
+        this.API = API.GetAllItems;
         break;
     }
   }

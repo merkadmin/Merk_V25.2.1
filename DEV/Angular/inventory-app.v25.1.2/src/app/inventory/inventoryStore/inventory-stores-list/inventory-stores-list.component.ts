@@ -42,7 +42,7 @@ export class InventoryStoresListComponent
   ) {
     this.gloablService.setApplication(
       Controller.InventoryStore, 
-      API.GetAllIsOnDuty, 
+      API.GetAllItems, 
       Application.InventoryStoresList,
       {
         PageTitleName_en: 'Store',
