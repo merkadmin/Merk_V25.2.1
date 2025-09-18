@@ -437,3 +437,5 @@ DEV/NetCoreApplication/CommonBL/obj/project.nuget.cache
 /DEV/NetFrameworkApplication/WebApplication/bin
 /DEV/NetFrameworkApplication/Libs/EntitiesBL/obj
 /DEV/NetFrameworkApplication/Libs/EntitiesBL/bin
+/DEV/NetFrameworkApplication/Libs/CommonBL/bin
+/DEV/NetFrameworkApplication/Libs/CommonBL/obj

@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{8EC462
 		config\EntitiesConfig.config = config\EntitiesConfig.config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonBL", "Libs\CommonBL\CommonBL.csproj", "{14063F0C-C68B-4212-AFFD-05FBFDE945EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,12 +30,17 @@ Global
 		{1100B046-FD1A-4A2C-964D-B11450C672AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1100B046-FD1A-4A2C-964D-B11450C672AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1100B046-FD1A-4A2C-964D-B11450C672AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14063F0C-C68B-4212-AFFD-05FBFDE945EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14063F0C-C68B-4212-AFFD-05FBFDE945EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14063F0C-C68B-4212-AFFD-05FBFDE945EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14063F0C-C68B-4212-AFFD-05FBFDE945EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1100B046-FD1A-4A2C-964D-B11450C672AE} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{14063F0C-C68B-4212-AFFD-05FBFDE945EC} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {41C19E95-2CE7-483C-AB34-1CC049635717}

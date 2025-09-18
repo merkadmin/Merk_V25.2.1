@@ -375,6 +375,10 @@
     <Content Include="Scripts\jquery-3.7.0.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Libs\CommonBL\CommonBL.csproj">
+      <Project>{14063F0C-C68B-4212-AFFD-05FBFDE945EC}</Project>
+      <Name>CommonBL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Libs\EntitiesBL\EntitiesBL.csproj">
       <Project>{1100b046-fd1a-4a2c-964d-b11450c672ae}</Project>
       <Name>EntitiesBL</Name>

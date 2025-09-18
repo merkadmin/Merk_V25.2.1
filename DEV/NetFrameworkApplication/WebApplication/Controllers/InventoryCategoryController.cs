@@ -1,12 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Http;
+﻿using CommonBL.DTO;
 using EntitiesBL;
 
 namespace WebApplication.Controllers
 {
-	public class InventoryCategoryController : BaseController
+	public class InventoryCategoryController : BaseMappedController<InventoryCategory_cu, InventoryCategory_DTO>
 	{
 		//[ActionName("GetAllItems")]
 		//[HttpGet]
