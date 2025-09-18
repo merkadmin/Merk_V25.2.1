@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntitiesCommonBL\DBCommon.cs" />
+    <Compile Include="EntitiesCommonBL\DBCommonExtension.cs" />
     <Compile Include="EntitiesCommonBL\EntitiesLogicLayer\Repositories\IRepository.cs" />
     <Compile Include="EntitiesCommonBL\EntitiesLogicLayer\Repositories\Repository.cs" />
     <Compile Include="EntitiesCommonBL\EntitiesLogicLayer\UnitOfWork\IUnitOfWork.cs" />
