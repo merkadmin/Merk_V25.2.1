@@ -1,5 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
+using EntitiesBL;
 
 namespace WebApplication.Controllers
 {
@@ -9,7 +12,11 @@ namespace WebApplication.Controllers
 		[HttpGet]
 		public override async Task<IHttpActionResult> GetAllItems()
 		{
-			return Ok("From Child");
+			using (ERPSystemEntities context = new ERPSystemEntities())
+			{
+				List<InventoryCategory_cu> list = context.InventoryCategory_cu.ToList();
+				return Ok(list);
+			}
 		}
 	}
 }
