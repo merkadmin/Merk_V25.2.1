@@ -433,3 +433,7 @@ DEV/NetCoreApplication/CommonBL/obj/project.nuget.cache
 /DEV/NetCoreApplication/InventorySolution/InventoryWebApi/obj
 /DEV/NetFrameworkApplication/.vs
 /DEV/NetFrameworkApplication/WebApplication/obj
+/DEV/NetFrameworkApplication/WebApplication/.vs
+/DEV/NetFrameworkApplication/WebApplication/bin
+/DEV/NetFrameworkApplication/Libs/EntitiesBL/obj
+/DEV/NetFrameworkApplication/Libs/EntitiesBL/bin
