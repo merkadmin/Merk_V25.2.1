@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntitiesBL.ModelEntities.CommonBL;
+using System;
 using System.Collections.Generic;
 
 namespace EntitiesBL.ModelEntities.GeneratedEnitities;

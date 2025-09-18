@@ -1,5 +1,4 @@
-﻿using CommonBL.DTO;
-using EntitiesBL.ModelEntities.GeneratedEnitities;
+﻿using EntitiesBL.ModelEntities.GeneratedEnitities;
 using InventoryWebAPI.Controllers;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,4 +1,6 @@
-﻿using EntitiesBL.ModelEntities.CommonBL;
+﻿//using EntitiesBL.ModelEntities.CommonBL;
+
+using EntitiesBL.ModelEntities.CommonBL;
 using EntitiesBL.ModelEntities.GeneratedEnitities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +34,13 @@ namespace InventoryWebAPI.Controllers
             List<TEntity> entitiesList = await _context.Set<TEntity>().Where(item => item.IsOnDuty).ToListAsync();
 			
             return Ok(entitiesList);
+        }
+
+        [HttpGet("ExecuteStoredProcedureAsync")]
+        public virtual async Task<ActionResult<List<TEntity>>> ExecuteStoredProcedureAsync(string storeProcedureName, Dictionary<string, object> parameters)
+        {
+            var result = await _context.ExecuteStoredProcedureAsync<TEntity>(storeProcedureName, parameters);
+            return Ok(result);
         }
 
         [HttpPut("DeleteItem")]
