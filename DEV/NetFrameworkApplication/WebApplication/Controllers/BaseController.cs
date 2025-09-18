@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using System.Web.Http;
+﻿using System.Web.Http;
 
 namespace WebApplication.Controllers
 {
@@ -7,13 +6,6 @@ namespace WebApplication.Controllers
 	{
 		public BaseController()
 		{
-		}
-
-		[ActionName("getAllItems")]
-		[HttpGet]
-		public virtual async Task<IHttpActionResult> GetAllItems()
-		{
-			return Ok("From Parent");
 		}
 	}
 }

@@ -8,15 +8,15 @@ namespace WebApplication.Controllers
 {
 	public class InventoryCategoryController : BaseController
 	{
-		[ActionName("getAllItems")]
-		[HttpGet]
-		public override async Task<IHttpActionResult> GetAllItems()
-		{
-			using (ERPSystemEntities context = new ERPSystemEntities())
-			{
-				List<InventoryCategory_cu> list = context.InventoryCategory_cu.ToList();
-				return Ok(list);
-			}
-		}
+		//[ActionName("GetAllItems")]
+		//[HttpGet]
+		//public async Task<IHttpActionResult> GetAllItems()
+		//{
+		//	using (ERPSystemEntities context = new ERPSystemEntities())
+		//	{
+		//		List<InventoryCategory_cu> list = context.InventoryCategory_cu.ToList();
+		//		return Ok(list);
+		//	}
+		//}
 	}
 }

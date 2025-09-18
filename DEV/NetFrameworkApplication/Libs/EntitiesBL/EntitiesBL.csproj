@@ -70,6 +70,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntitiesCommonBL\DBCommon.cs" />
+    <Compile Include="EntitiesCommonBL\EntitiesLogicLayer\Repositories\IRepository.cs" />
+    <Compile Include="EntitiesCommonBL\EntitiesLogicLayer\Repositories\Repository.cs" />
+    <Compile Include="EntitiesCommonBL\EntitiesLogicLayer\UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="EntitiesCommonBL\EntitiesLogicLayer\UnitOfWork\UnitOfWork.cs" />
+    <Compile Include="EntitiesCommonBL\IDBCommon.cs" />
+    <Compile Include="EntitiesCommonBL\PrivateEnums.cs" />
     <Compile Include="ERPSystemEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,6 +135,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\CustomEntities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
