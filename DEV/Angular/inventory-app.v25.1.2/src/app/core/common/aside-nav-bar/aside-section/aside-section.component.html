@@ -5,7 +5,7 @@
 </div>
 
 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-    <span class="menu-link">
+    <span class="menu-link" [ngClass]="{'active': AsideSectionItem?.isActive}">
         <a class="menu-icon">
             <i [ngClass]="AsideSectionItem?.headerTitleIcon"></i>
         </a>
@@ -14,7 +14,7 @@
     </span>
     <div class="menu-sub menu-sub-accordion menu-active-bg">
         <div data-kt-menu-trigger="click" class="menu-item menu-accordion" *ngFor="let item of AsideSectionItem?.itemsInside; let i = index">
-            <span class="menu-link">
+            <span class="menu-link" [ngClass]="{'active': item.isActive || i == 0}">
                 <span class="menu-bullet">
                     <span [ngClass]="item.nameIcon"></span>
                 </span>

@@ -22,24 +22,28 @@ export class AsideNavBarService {
         headerTitleIcon: 'bi bi-archive fs-3', // Using 'icon' property as seen in AsideSectionCollection structure
         itemSectionTitle: 'Inventory',
         itemSectionLink: '', // Link for the section itself, often empty if it's just a header
+        isActive: true,
         itemsInside: [
           {
             name: 'Stores',
             nameIcon: 'bullet bullet-dot',
             order: 2,
             link: 'stores',
+            isActive: false,
           },
           {
             name: 'Categories',
             nameIcon: 'bullet bullet-dot',
             order: 1,
             link: 'categories',
+            isActive: true,
           },
           {
             name: 'Items',
             nameIcon: 'bullet bullet-dot',
             order: 3,
             link: 'items',
+            isActive: false,
           },
         ],
       },
