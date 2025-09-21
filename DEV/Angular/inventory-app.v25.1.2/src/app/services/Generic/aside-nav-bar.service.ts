@@ -18,7 +18,7 @@ export class AsideNavBarService {
   setAsideNavBarItems() {
     this.AsideItems = [
       {
-        headerTitle: 'Settings',
+        headerTitle: 'Quick Access',
         headerTitleIcon: 'bi bi-archive fs-3', // Using 'icon' property as seen in AsideSectionCollection structure
         itemSectionTitle: 'Inventory',
         itemSectionLink: '', // Link for the section itself, often empty if it's just a header
