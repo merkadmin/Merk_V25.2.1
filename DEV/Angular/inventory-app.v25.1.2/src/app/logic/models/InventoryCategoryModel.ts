@@ -5,5 +5,5 @@ export class InventoryCategoryModel extends Model {
     CategoryName_P: string | undefined;
     CategoryName_S: string | undefined;
     CategoryInternalCode: string | undefined;
-    Description: string | undefined;
+    CategoryDescription: string | undefined;
 }

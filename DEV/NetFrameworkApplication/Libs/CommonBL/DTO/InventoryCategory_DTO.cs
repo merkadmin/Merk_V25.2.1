@@ -40,5 +40,9 @@ namespace CommonBL.DTO
 		[SourceMember(nameof(InventoryCategory_cu.InternalCode))]
 		[MapTo("InternalCode")]
 		public string CategoryInternalCode { get; set; }
+
+		[SourceMember(nameof(InventoryCategory_cu.Description))]
+		[MapTo("Description")]
+		public string CategoryDescription { get; set; }
 	}
 }
