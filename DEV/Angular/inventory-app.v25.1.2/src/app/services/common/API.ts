@@ -1,4 +1,5 @@
 export enum API {
     GetAll = 'GetAll',
-    GetAllItems = 'GetAllItems'
+    GetAllItems = 'GetAllItems',
+    SaveItem = "SaveItem"
 }

@@ -6,21 +6,15 @@ import { ActionButtonComponent } from "../../../controls/actions/action-button/a
 
 @Component({
   selector: 'app-regular-list-card-top',
-  imports: [
-    ActionButtonComponent
-],
+  imports: [ActionButtonComponent],
   templateUrl: './regular-list-card-top.component.html',
-  styleUrl: './regular-list-card-top.component.scss'
+  styleUrl: './regular-list-card-top.component.scss',
 })
 export class RegularListCardTopComponent {
   constructor(
-        public gloablService: GlobalActionsService,
-        private spinner: NgxSpinnerService
-    ) {
-  
-    }
+    public gloablService: GlobalActionsService,
+    private spinner: NgxSpinnerService
+  ) {}
 
-    onRefreshData(){
-      
-    }
+  onRefreshData() {}
 }

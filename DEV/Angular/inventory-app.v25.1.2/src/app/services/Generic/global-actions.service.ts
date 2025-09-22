@@ -68,7 +68,7 @@ export class GlobalActionsService {
     return this.gernericApiCalling.get<Model[]>(controller, api);
   }
 
-  setApplication(controller: Controller, api: API, application: Application, translatedItems: TranslateBL){
+  setApplication(controller: Controller, api: API, application: Application, translatedItems: TranslateBL = {} as TranslateBL){
     this.Controller = controller;
     this.API = api;
     this.Application = application;

@@ -40,7 +40,7 @@ export class InventoryCategoriesListComponent
     private route: ActivatedRoute,
     private spinner: NgxSpinnerService) {
       this.gloablService.setApplication(
-        Controller.InventoryStore,
+        Controller.InventoryCategory,
         API.GetAllItems,
         Application.InventoryCategoryList,
         {
@@ -52,7 +52,9 @@ export class InventoryCategoriesListComponent
       );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   ngAfterViewInit(): void {
     this.spinner.show();
@@ -74,5 +76,7 @@ export class InventoryCategoriesListComponent
       });
   }
 
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void {
+    
+  }
 }

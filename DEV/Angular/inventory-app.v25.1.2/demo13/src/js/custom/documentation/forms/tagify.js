@@ -154,7 +154,7 @@ var KTFormsTagifyDemos = function () {
 
         const usersList = [
             { value: 1, name: 'Emma Smith', avatar: 'avatars/150-1.jpg', email: 'e.smith@kpmg.com.au' },
-            { value: 2, name: 'Max Smith', avatar: 'avatars/150-26.jpg', email: 'max@kt.com' },
+            { value: 2, name: 'Max Smith', avatar: 'avatars/150-26.jpg', email: '' },
             { value: 3, name: 'Sean Bean', avatar: 'avatars/150-4.jpg', email: 'sean@dellito.com' },
             { value: 4, name: 'Brian Cox', avatar: 'avatars/150-15.jpg', email: 'brian@exchange.com' },
             { value: 5, name: 'Francis Mitcham', avatar: 'avatars/150-8.jpg', email: 'f.mitcham@kpmg.com.au' },
