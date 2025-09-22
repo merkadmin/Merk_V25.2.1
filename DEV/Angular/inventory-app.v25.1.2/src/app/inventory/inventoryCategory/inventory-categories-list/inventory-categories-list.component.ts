@@ -38,25 +38,18 @@ export class InventoryCategoriesListComponent
   constructor(
     public gloablService: GlobalActionsService,
     private route: ActivatedRoute,
-    private spinner: NgxSpinnerService
-  ) {
-    this.gloablService.setApplication(
-      Controller.InventoryStore,
-      API.GetAllItems,
-      Application.InventoryCategoryList,
-      {
-        PageTitleName_en: 'Category',
-        PageTitleName_ar: 'فئة',
-        PageTitleName_en_pl: 'Categories',
-        PageTitleName_ar_pl: 'الفئات',
-      }
-    );
-
-    console.log(
-      'From Category this.gloablService.Controller',
-      this.gloablService.Controller
-    );
-    console.log('From Category this.gloablService.API', this.gloablService.API);
+    private spinner: NgxSpinnerService) {
+      this.gloablService.setApplication(
+        Controller.InventoryStore,
+        API.GetAllItems,
+        Application.InventoryCategoryList,
+        {
+          PageTitleName_en: 'Category',
+          PageTitleName_ar: 'فئة',
+          PageTitleName_en_pl: 'Categories',
+          PageTitleName_ar_pl: 'الفئات',
+        }
+      );
   }
 
   ngOnInit(): void {}
