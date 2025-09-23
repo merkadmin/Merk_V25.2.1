@@ -5,7 +5,9 @@ import { SearchInputComponent } from './controls/inputs/search-input/search-inpu
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    
+  ],
   imports: [
     AsideNavBarComponent,
     HeaderControlsComponent,

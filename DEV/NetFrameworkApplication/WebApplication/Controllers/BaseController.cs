@@ -22,7 +22,7 @@ namespace WebApplication.Controllers
 			_pageRowsCount = 20;
 		}
 
-		[ActionName("getAllItems")]
+		[ActionName("GetAllItems")]
 		[HttpGet]
 		public virtual async Task<IHttpActionResult> GetAllItems()
 		{
@@ -32,7 +32,7 @@ namespace WebApplication.Controllers
 			return Ok(responseList);
 		}
 
-		[ActionName("getItemsByRange")]
+		[ActionName("GetItemsByRange")]
 		[HttpGet]
 		public virtual async Task<IHttpActionResult> GetItemsByRange(int pageIndex)
 		{
@@ -83,7 +83,7 @@ namespace WebApplication.Controllers
 			}
 		}
 
-		[ActionName("getPagesCount")]
+		[ActionName("GetPagesCount")]
 		[HttpGet]
 		public virtual IHttpActionResult GetPagesCount()
 		{
@@ -103,7 +103,7 @@ namespace WebApplication.Controllers
 			return Ok(1);
 		}
 
-		[ActionName("getPageRowsCount")]
+		[ActionName("GetPageRowsCount")]
 		[HttpGet]
 		public virtual IHttpActionResult GetPageRowsCount()
 		{
@@ -121,7 +121,7 @@ namespace WebApplication.Controllers
 			return Ok(1);
 		}
 
-		[ActionName("getItemsCount")]
+		[ActionName("GetItemsCount")]
 		[HttpGet]
 		public virtual IHttpActionResult GetItemsCount()
 		{
@@ -130,7 +130,7 @@ namespace WebApplication.Controllers
 			return Ok(itemsCount);
 		}
 
-		[ActionName("getItem")]
+		[ActionName("GetItem")]
 		[HttpGet]
 		public IHttpActionResult GetItem(long entityID)
 		{
@@ -145,7 +145,7 @@ namespace WebApplication.Controllers
 			return Ok(response);
 		}
 
-		[ActionName("getNextInternalCode")]
+		[ActionName("GetNextInternalCode")]
 		[HttpGet]
 		public IHttpActionResult GetNextInternalCode(string prefix)
 		{
@@ -153,7 +153,7 @@ namespace WebApplication.Controllers
 			return Ok(internalCode);
 		}
 
-		[ActionName("deleteItem")]
+		[ActionName("DeleteItem")]
 		[HttpDelete]
 		public IHttpActionResult DeleteItem(long entityID, bool setIsOnDuty = true)
 		{
@@ -173,7 +173,7 @@ namespace WebApplication.Controllers
 			return Ok(false);
 		}
 
-		[ActionName("saveChanges")]
+		[ActionName("SaveChanges")]
 		[HttpPost]
 		public IHttpActionResult SaveChanges(TDTO dtoToSave)
 		{

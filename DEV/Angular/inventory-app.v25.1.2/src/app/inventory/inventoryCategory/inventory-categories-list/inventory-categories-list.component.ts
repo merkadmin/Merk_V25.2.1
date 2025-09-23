@@ -16,7 +16,6 @@ import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { CommonModule } from '@angular/common';
 import { Application } from '../../../services/Generic/Application';
 import { RegularListCardComponent } from '../../../core/common/cards/regularListCards/regular-list-card/regular-list-card.component';
-import { TranslateBL } from '../../../services/Generic/translate/TranslateBL';
 
 @Component({
   selector: 'app-inventory-categories-list',
@@ -30,8 +29,7 @@ import { TranslateBL } from '../../../services/Generic/translate/TranslateBL';
   styleUrl: './inventory-categories-list.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class InventoryCategoriesListComponent
-  implements OnInit, AfterViewInit, OnDestroy
+export class InventoryCategoriesListComponent implements OnInit, AfterViewInit, OnDestroy
 {
   tableHeaders: TableHeader[] = [new InventoryCategories_TH()];
 
