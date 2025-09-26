@@ -14,7 +14,7 @@ import { TableHeader } from '../../../logic/table/TableHeader';
 import { GlobalActionsService } from '../../../services/Generic/global-actions.service';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { CommonModule } from '@angular/common';
-import { Application } from '../../../services/Generic/Application';
+import { ActionType, Application } from '../../../services/Generic/Application';
 import { RegularListCardComponent } from '../../../core/common/cards/regularListCards/regular-list-card/regular-list-card.component';
 
 @Component({
@@ -41,6 +41,16 @@ export class InventoryCategoriesListComponent implements OnInit, AfterViewInit, 
         Controller.InventoryCategory,
         API.GetAllItems,
         Application.InventoryCategoryList,
+        [
+          {
+            ActionType: ActionType.AddNew,
+            RouteLink: '/categoryaction/0',
+          },
+          {
+            ActionType: ActionType.List,
+            RouteLink: '/categories',
+          },
+        ],
         {
           PageTitleName_en: 'Category',
           PageTitleName_ar: 'فئة',

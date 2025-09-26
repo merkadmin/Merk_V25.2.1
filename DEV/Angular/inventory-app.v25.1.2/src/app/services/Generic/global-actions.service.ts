@@ -4,7 +4,7 @@ import { Controller } from '../common/Controller';
 import { API } from '../common/API';
 import { Model } from '../../logic/models/Model';
 import { Observable } from 'rxjs';
-import { Application } from './Application';
+import { ActionTypeConstructor, Application } from './Application';
 import { TranslateBL } from './translate/TranslateBL';
 import { AsideSectionCollection } from '../../core/common/aside-nav-bar/aside-section/AsideSectionCollection';
 
@@ -12,12 +12,12 @@ import { AsideSectionCollection } from '../../core/common/aside-nav-bar/aside-se
   providedIn: 'root',
 })
 export class GlobalActionsService {
-  private _DataItemsLoaded: Model[] = [] as Model[];
+  private _dataItemsLoaded: Model[] = [] as Model[];
   get DataItemsLoaded(): Model[]{
-    return this._DataItemsLoaded ?? [] as Model[];
+    return this._dataItemsLoaded ?? [] as Model[];
   }
   set DataItemsLoaded(value: Model[]){
-    this._DataItemsLoaded = value;
+    this._dataItemsLoaded = value;
   }
 
   private _application: Application = {} as Application;
@@ -58,6 +58,14 @@ export class GlobalActionsService {
     this._traslatedBL = value;
   }
 
+  private _actionTypeConstructorr: ActionTypeConstructor[] = {} as ActionTypeConstructor[];
+  get ActionTypeConstructor(): ActionTypeConstructor[]{
+    return this._actionTypeConstructorr;
+  }
+  set ActionTypeConstructor(value: ActionTypeConstructor[]){
+    this._actionTypeConstructorr = value;
+  }
+
   constructor(
     private gernericApiCalling: GenericAPICallingService
   ) {
@@ -68,10 +76,16 @@ export class GlobalActionsService {
     return this.gernericApiCalling.get<Model[]>(controller, api);
   }
 
-  setApplication(controller: Controller, api: API, application: Application, translatedItems: TranslateBL = {} as TranslateBL){
+  setApplication(
+    controller: Controller, 
+    api: API, 
+    application: Application,
+    actionTypeConstructor: ActionTypeConstructor[],
+    translatedItems: TranslateBL = {} as TranslateBL){
     this.Controller = controller;
     this.API = api;
     this.Application = application;
     this.TranslateBL = translatedItems;
+    this.ActionTypeConstructor = actionTypeConstructor;
   }
 }

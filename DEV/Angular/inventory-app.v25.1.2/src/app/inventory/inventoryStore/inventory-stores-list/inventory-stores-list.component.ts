@@ -16,7 +16,7 @@ import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { TableHeader } from '../../../logic/table/TableHeader';
 import { InventoryStores_TH } from '../../../logic/table/InventoryStores_TH';
 import { GlobalActionsService } from '../../../services/Generic/global-actions.service';
-import { Application } from '../../../services/Generic/Application';
+import { ActionType, Application } from '../../../services/Generic/Application';
 
 @Component({
   selector: 'app-inventory-stores-list',
@@ -41,9 +41,19 @@ export class InventoryStoresListComponent
     private spinner: NgxSpinnerService
   ) {
     this.gloablService.setApplication(
-      Controller.InventoryStore, 
-      API.GetAllItems, 
+      Controller.InventoryStore,
+      API.GetAllItems,
       Application.InventoryStoresList,
+      [
+        {
+          ActionType: ActionType.AddNew,
+          RouteLink: '/categoryaction/0',
+        },
+        {
+          ActionType: ActionType.List,
+          RouteLink: '/categories',
+        },
+      ],
       {
         PageTitleName_en: 'Store',
         PageTitleName_ar: 'مخزن',
