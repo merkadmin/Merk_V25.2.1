@@ -21,6 +21,7 @@ export class AppComponent implements AfterViewInit, OnChanges {
     //   KTMenu.createInstances();
     // }
   }
+  
 
   ngOnChanges(changes: SimpleChanges): void {
     // if (typeof KTMenu !== 'undefined') {
